@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.crcperidona.in
+
+# Sitemaps
+Sitemap: https://www.crcperidona.in/sitemap.xml

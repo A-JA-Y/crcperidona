@@ -1,0 +1,46 @@
+"use client";
+import { FaDownload } from "react-icons/fa";
+
+import { useModal } from "./ModalContext";
+
+export default function StickyDownloadButton() {
+  const { openModal } = useModal();
+  const handleClick = (e) => {
+    e.preventDefault();
+    const unlocked = localStorage.getItem("plansUnlocked") === "true";
+    if (unlocked) {
+      const link = document.createElement("a");
+      link.href = "/brochure.pdf";
+      link.download = "brochure.pdf";
+      link.click();
+    } else {
+      openModal();
+    }
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      aria-label="Download brochure"
+      className="
+        animate-sticky-nudge
+        fixed bottom-16 right-0
+        flex flex-col items-center justify-center
+        bg-[#c8952a] text-white font-semibold
+        shadow-lg transition-all duration-300
+        hover:bg-[#b07d1f] hover:shadow-[0_6px_24px_rgba(196,154,43,0.5)] hover:pr-[10px]
+        active:scale-95
+        px-[7px] py-[10px] z-[1000]
+        rounded-l-md rounded-r-none
+      "
+    >
+      <FaDownload size={16} className="rotate-90" />
+
+      <div className="mt-[6px] flex flex-col items-center text-[11px] font-semibold leading-[1.1]">
+        {"Brochure".split("").map((char, index) => (
+          <span key={index}>{char}</span>
+        ))}
+      </div>
+    </button>
+  );
+}

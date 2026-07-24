@@ -1,0 +1,441 @@
+@import "tailwindcss";
+
+
+
+body {
+  font-family: var(--font-inter);
+}
+
+
+
+footer {
+  display: flex;
+  align-items: center;
+}
+
+h6 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.25em;
+}
+
+h2,
+h3,
+h4 {
+  font-family: var(--font-work-sans);
+}
+
+h2 {
+  font-size: 2.375rem;
+
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+
+.range-custom {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+/* Track with fill */
+.range-custom::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right,
+      #DCA54A var(--value),
+      #e5e5e5 var(--value));
+}
+
+/* Thumb */
+.range-custom::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  background: #DCA54A;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+/* Firefox */
+.range-custom::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(to right,
+      #DCA54A var(--value),
+      #e5e5e5 var(--value));
+}
+
+.range-custom::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  background: #DCA54A;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ============================================================
+   Motion & micro-interaction system
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Scroll reveal ----------
+   Elements with [data-reveal] start hidden and animate in when
+   ScrollReveal adds .is-visible. Only active once JS confirms
+   itself by stamping .js-reveal on <html>, so content is never
+   lost if JS fails. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--reveal-delay, 0) * 90ms);
+  will-change: opacity, transform;
+}
+
+.js-reveal [data-reveal="left"] {
+  transform: translateX(-32px);
+}
+
+.js-reveal [data-reveal="right"] {
+  transform: translateX(32px);
+}
+
+.js-reveal [data-reveal="zoom"] {
+  transform: scale(0.94);
+}
+
+.js-reveal [data-reveal="fade"] {
+  transform: none;
+}
+
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Button sheen sweep ---------- */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -80%;
+  width: 50%;
+  background: linear-gradient(105deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 80%);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-shine:hover::after,
+.btn-shine:focus-visible::after {
+  left: 130%;
+}
+
+/* ---------- Hover lift for buttons & cards ---------- */
+.hover-lift {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+.hover-lift:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.card-lift {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px -12px rgba(44, 31, 14, 0.25);
+}
+
+/* ---------- Gold buttons get a soft glow on hover ---------- */
+.btn-gold-glow:hover {
+  box-shadow: 0 8px 24px -6px rgba(196, 154, 43, 0.55);
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-hero-fade-up {
+  animation: heroFadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes scrollHint {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  50% {
+    transform: translateY(7px);
+    opacity: 0.45;
+  }
+}
+
+.animate-scroll-hint {
+  animation: scrollHint 1.8s ease-in-out infinite;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-modal-pop {
+  animation: modalPop 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-overlay-fade {
+  animation: overlayFade 0.3s ease both;
+}
+
+@keyframes drawerItem {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.drawer-item {
+  animation: drawerItem 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 45ms + 100ms);
+}
+
+@keyframes stickyNudge {
+
+  0%,
+  86%,
+  100% {
+    transform: translateX(0);
+  }
+
+  90% {
+    transform: translateX(-4px);
+  }
+
+  94% {
+    transform: translateX(2px);
+  }
+
+  97% {
+    transform: translateX(-2px);
+  }
+}
+
+.animate-sticky-nudge {
+  animation: stickyNudge 6s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 0.8s linear infinite;
+}
+
+/* ---------- Ken Burns (slow living zoom for stills) ---------- */
+@keyframes kenBurns {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurns 16s ease-out both;
+}
+
+/* ---------- Ambient gold glow blobs ---------- */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(70px);
+  opacity: 0.55;
+  background: radial-gradient(circle, rgba(220, 165, 74, 0.38), transparent 70%);
+  animation: blobFloat 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes blobFloat {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(34px, -26px, 0) scale(1.18);
+  }
+}
+
+/* ---------- Richer color for media ---------- */
+.img-rich {
+  filter: saturate(1.14) contrast(1.04);
+}
+
+.video-rich {
+  filter: saturate(1.22) contrast(1.06) brightness(1.02);
+}
+
+/* ---------- Gold gradient text ---------- */
+.text-gold-gradient {
+  background: linear-gradient(100deg, #a8841e 0%, #dca54a 35%, #f0d488 52%, #dca54a 68%, #a8841e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Breathing glow for primary CTAs ---------- */
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 165, 74, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 20px 5px rgba(220, 165, 74, 0.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.8s ease-in-out infinite;
+}
+
+/* ---------- Gold line that draws itself when its reveal fires ---------- */
+.gold-line {
+  transform: scaleX(0);
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+html:not(.js-reveal) .gold-line {
+  transform: scaleX(1);
+}
+
+.js-reveal [data-reveal].is-visible .gold-line,
+.js-reveal [data-reveal].is-visible.gold-line {
+  transform: scaleX(1);
+}
+
+/* Mobile horizontal snap carousel helper */
+.snap-row {
+  scrollbar-width: none;
+}
+
+.snap-row::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Reduced motion: switch everything off ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-reveal [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-hero-fade-up,
+  .animate-scroll-hint,
+  .animate-modal-pop,
+  .animate-overlay-fade,
+  .drawer-item,
+  .animate-sticky-nudge,
+  .animate-ken-burns,
+  .glow-blob,
+  .animate-pulse-glow {
+    animation: none;
+  }
+
+  .gold-line {
+    transform: scaleX(1);
+    transition: none;
+  }
+
+  .btn-shine::after {
+    display: none;
+  }
+
+  .hover-lift,
+  .card-lift {
+    transition: none;
+  }
+}
