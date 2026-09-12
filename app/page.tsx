@@ -5,6 +5,7 @@ import ReraStrip from "@/components/QRsectionsm";
 import ContactForm from "@/components/ContactForm";
 import ModalWrapper from "@/components/ModalWrapper";
 import HomePageHeader from "@/components/HomePageHeader";
+import HomeContent from "@/components/HomeContent";
 
 // Lazy load below-the-fold components
 const AboutProject = dynamic(() => import("@/components/AboutProject"));
@@ -26,10 +27,6 @@ const Footer = dynamic(() => import("@/components/Footer"));
 export default function Home() {
   return (
     <div className="w-full">
-      <h1 className="hidden">
-        CRC The Peridona Jaypee Greens Greater Noida – 4, 4.5 &amp; 5.5 BHK Luxury Residences by CRC Group
-      </h1>
-
       {/* SCHEMA START */}
       <script
         type="application/ld+json"
@@ -123,6 +120,7 @@ export default function Home() {
         <ModalWrapper />
 
         <AboutProject  heading={false}/>
+        <HomeContent />
         <Amenities />
         <JaypeeTownship />
         <ReasonsToInvest />

@@ -1,22 +1,61 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import ReasonsToInvest from "@/components/ReasonToInvest";
-import VillaFeatures from "@/components/PremiumInventory";
+import ModalWrapper from "@/components/ModalWrapper";
 import StickyDownloadButton from "@/components/StickyButton";
+import CtaRow from "@/components/CtaRow";
+import SimpleTable from "@/components/SimpleTable";
+import { RERA_NO, ReraLink } from "@/components/ProjectSnapshot";
+import { prose } from "@/utils/prose";
 
 export const metadata: Metadata = {
-  title: "CRC The Peridona Residences — 4, 4.5 & 5.5 BHK Configurations at Jaypee Greens",
+  title: "Residences at CRC The Peridona | 4 BHK, 5 BHK, Duplexes & Villas",
   description:
-    "Explore CRC The Peridona residences & configurations — 4, 4.5 & 5.5 BHK luxury homes starting 4,950 sq ft with One Floor One Apartment* living, private lift lobby and 2-side golf & nature park views. ₹12.5 Cr* onwards.",
+    "Explore the four home formats at CRC The Peridona, Jaypee Greens: whole-floor 4 and 5 BHK residences from 3,930 sq ft, 10,000 sq ft duplexes and two 15,000 sq ft villas.",
   alternates: { canonical: "https://www.crcperidona.in/residences" },
 };
 
-const configTable = [
-  { type: "4 BHK", size: "4,900 sq ft", note: "Golf Course + Nature Park views" },
-  { type: "5 BHK", size: "5,600 sq ft", note: "Golf Course + Nature Park views" },
-  { type: "4 BHK", size: "6,700 sq ft", note: "Golf Course + Nature Park views" },
-  { type: "Penthouse", size: "On request", note: "Indicative; subject to approved plan" },
+const formats = [
+  {
+    title: "Four-Bedroom Residences",
+    spec: "Floor plate from approximately 4,000 sq ft · Carpet area from around 3,930 sq ft",
+    paras: [
+      "The entry format here would be the top of the range almost anywhere else in Greater Noida.",
+      "Four bedrooms, each sized to take a king bed and real furniture rather than the minimum that clears a doorway. Living and dining occupy a continuous open span across one side of the floor, with the golf course and the landscaped grounds framed through the glazing. Utility, staff and service functions sit on their own circulation, so household work never crosses the family’s path.",
+    ],
+    suits:
+      "Families of four to six who want a single-level home with genuine room separation, and buyers who value the whole-floor privacy more than they need additional square footage.",
+  },
+  {
+    title: "Five-Bedroom Residences",
+    spec: "Larger floor plates, scaling toward 11,000+ sq ft carpet at the upper end",
+    paras: [
+      "The five-bedroom homes are not simply four-bedroom plans with a room added. The additional area goes into separating the house into zones that can operate independently of each other.",
+      "A formal entertaining wing that guests never need to leave. A private family wing with bedrooms grouped away from the noise. A service zone with its own entry. Multi-generational households tend to gravitate here, as do buyers who entertain at home frequently and want to do it without the rest of the house being on display.",
+    ],
+    suits: "Three-generation families, and households where home and hosting overlap regularly.",
+  },
+  {
+    title: "Duplex Residences",
+    spec: "Approximately 10,000 sq ft across two connected levels",
+    paras: [
+      "The duplexes solve a problem that even very large single-floor apartments cannot: vertical separation.",
+      "Two floors joined by an internal stair gives you a real ground and a real upstairs. Public life happens on one level — arrival, living, dining, entertaining, the terrace. Private life happens on the other. The distance between the two is not measured in metres of corridor but in a flight of stairs, which is a different psychological experience entirely.",
+      "At 10,000 sq ft, these are houses that happen to sit forty floors above a golf course.",
+    ],
+    suits:
+      "Buyers who want the spatial logic of a villa without giving up height, views or the security of a managed tower.",
+  },
+  {
+    title: "The Villas",
+    spec: "Approximately 15,000 sq ft each · Two in total",
+    paras: [
+      "There are two. That is the complete villa inventory of the project, and no more will be created.",
+      "Ground-level homes within the estate, with their own land, their own arrival and their own relationship to the landscape around them. Everything that applies to the apartments — the design team, the specification, the estate amenities, the golf course access — applies here, at house scale.",
+    ],
+    suits:
+      "Buyers for whom scarcity is itself part of the proposition. If you are reading this and the villas are still available, that is a matter of timing.",
+  },
 ];
 
 export default function ResidencesPage() {
@@ -24,140 +63,129 @@ export default function ResidencesPage() {
     <>
       <PageBanner
         eyebrow="Residences"
-        title="Residences & Configurations"
-        subtitle="4, 4.5 & 5.5 BHK residences starting 4,950 sq ft — One Floor One Apartment* living with 2-side views at CRC The Peridona, Jaypee Greens"
+        title="The Residences"
+        subtitle="341 homes. Four formats. One per floor."
       />
+      <ModalWrapper />
 
-      <section className="w-full bg-white py-16 px-6">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <section className={`${prose.section} bg-white`}>
+        <div className={prose.inner}>
+          <h1 className={prose.h1}>
+            Residences at CRC The Peridona — 4 BHK, 5 BHK, Duplexes &amp; Villas
+          </h1>
+          <p className={prose.lead}>
+            <strong>341 homes. Four formats. One per floor.</strong>
+          </p>
+          <p className={prose.p}>
+            That last number is the one that changes how these homes feel to live in. Because no
+            floor is subdivided, every residence here is a through-floor home with exposure on all
+            four sides. Morning light, evening light, and cross-ventilation are not a function of
+            which unit you picked — they come standard with the floor plate.
+          </p>
+          <p className={prose.p}>
+            What follows is how the four formats differ, and who each one is actually built for.
+          </p>
 
-          <div className="prose max-w-none text-gray-700">
-            <h1 className="text-3xl font-semibold text-gray-900 mb-6 border-b pb-4">CRC The Peridona Residences — 4, 4.5 & 5.5 BHK Configurations</h1>
-            <p className="text-lg leading-relaxed mb-6">
-              CRC The Peridona offers <strong>4 BHK, 4.5 BHK and 5.5 BHK</strong> residences starting at <strong>4,950 sq ft</strong>, at a tentative price of <strong>₹12.5 Cr* onwards</strong>. Just 341 residences are spread across 7 towers of 43 floors on a 6.80-acre parcel inside the 452-acre Jaypee Greens golf township, Greater Noida. Every home follows the One Floor One Apartment* concept with a private lift lobby, and every residence gets 2-side views — the golf course on one side and the nature park on the other. The project is RERA-registered under UPRERAPRJ298067/05/2025 (verify at www.up-rera.in).
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Floor-Plan Configurations</h2>
-            <div className="overflow-x-auto rounded-lg border border-[#e5dcc5] shadow-sm mb-4">
-              <table className="w-full text-sm text-left">
-                <thead className="bg-[#FAF8F4] text-[#c8922a] uppercase text-xs tracking-wider">
-                  <tr>
-                    <th className="px-5 py-4">Configuration</th>
-                    <th className="px-5 py-4">Size*</th>
-                    <th className="px-5 py-4">Views</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {configTable.map((row) => (
-                    <tr key={`${row.type}-${row.size}`} className="border-t border-[#e5dcc5]">
-                      <td className="px-5 py-4 font-semibold text-gray-900">{row.type}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.size}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.note}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-xs text-gray-500 leading-relaxed mb-6 italic">
-              *Indicative; subject to approved building plan. Sizes, configurations, and the tentative price of ₹12.5 Cr* onwards are indicative and subject to change; they exclude registration, stamp duty, GST (where applicable), and other statutory charges. For live availability and the official current price list, request a callback.
-            </p>
-          </div>
-
-          <div className="prose max-w-none text-gray-700">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">The Typologies</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">4 BHK Residences</h3>
-                <p>Expansive 4 BHK homes from 4,900 sq ft* to 6,700 sq ft* — a full floor to yourself, with a private lift lobby opening straight into your residence. The larger 4 BHK format adds generous entertaining and family spaces while keeping the same 2-side golf-and-park orientation.</p>
-              </div>
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">4.5 BHK Residences</h3>
-                <p>The 4.5 BHK typology adds a flexible half-room — study, home office, lounge, or staff suite — to the four-bedroom format, for families who want that extra measure of adaptability without stepping up to the largest homes.</p>
-              </div>
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">5.5 BHK Residences</h3>
-                <p>The grandest of the standard typologies — 5.5 BHK residences (5 BHK configurations from 5,600 sq ft* on the official floor-plan list) built for multi-generational living, with the full sweep of the 330 m* facade&apos;s dual outlooks.</p>
-              </div>
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Penthouses</h3>
-                <p>Penthouse residences crown the towers beneath the 75,500 sq ft rooftop realm. Details are indicative and subject to the approved building plan — <Link href="/contact-us" className="text-[#c8922a] hover:underline font-semibold">request a private preview</Link> for particulars.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="prose max-w-none text-gray-700">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">One Floor, One Apartment*</h2>
-              <p className="mb-4">The defining idea of The Peridona: your floor is your home. What that means in daily life:</p>
-              <ul className="list-disc pl-5 space-y-2 mb-6">
-                <li><strong>Private lift lobby</strong> — high-speed lifts open into a lobby that belongs only to your residence</li>
-                <li><strong>No shared walls with neighbours</strong> on your level — a full floor plate per apartment*</li>
-                <li><strong>2-side views for every residence</strong> — golf course (north) and 60-acre nature park (south)</li>
-                <li><strong>Low density by design</strong> — only 341 residences across 7 towers on 6.80 acres</li>
-                <li><strong>43 floors, ~160 m* tower height</strong> — homes lifted above the township&apos;s 25-year-old green cover</li>
-              </ul>
-              <Link href="/floor-plans" className="text-[#c8922a] hover:underline font-semibold">Check floor plans</Link>
-            </div>
-
-            <div className="prose max-w-none text-gray-700">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Residence Specifications</h2>
-              <p className="mb-4">Every residence is finished to an ultra-luxury standard:</p>
-              <ul className="list-disc pl-5 space-y-2 mb-6">
-                <li>Imported marble in living/dining; engineered wood in bedrooms</li>
-                <li>Modular kitchen with premium fittings & built-in appliances</li>
-                <li>European-brand sanitaryware and CP fittings</li>
-                <li>Double-glazed thermally broken aluminium windows</li>
-                <li>VRV/VRF air conditioning</li>
-                <li>Smart-home provisions — lighting, climate, security</li>
-                <li>24x7 multi-tier security, video door phone, fire safety</li>
-                <li>High-speed lifts with private lobby access</li>
-              </ul>
-              <p>For a personalised walkthrough of finishes and options, <Link href="/contact-us" className="text-[#c8922a] hover:underline font-semibold">book a site visit</Link>.</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="prose max-w-none text-gray-700">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Set Inside Jaypee Greens</h2>
-              <p className="mb-4">The residences draw their value from a township few in Delhi NCR can match:</p>
-              <ul className="list-disc pl-5 space-y-2 mb-6">
-                <li><strong>452-acre golf township</strong> with only ~3,600 units in total — rare low density for Delhi NCR</li>
-                <li><strong>130-acre, 18-hole Greg Norman Design Championship golf course</strong> to the north</li>
-                <li><strong>60-acre nature park</strong> to the south and a 10-acre practice range</li>
-                <li><strong>25-year-old green cover</strong> and enhanced AQI versus the neighbourhood</li>
-                <li><strong>Primary access via Narmada Gate</strong>, opposite the practice range</li>
-              </ul>
-              <p>See <Link href="/location-connectivity" className="text-[#c8922a] hover:underline font-semibold">Location & Connectivity</Link> for Pari Chowk (~2 km), Yamuna Expressway access, and airport distances.</p>
-            </div>
-
-            <div className="prose max-w-none text-gray-700">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Amenities That Come With Every Home</h2>
-              <p className="mb-4">Ownership at The Peridona includes access to:</p>
-              <ul className="list-disc pl-5 space-y-2 mb-6">
-                <li><strong>The Club</strong> — 1.8 lakh sq ft across 3 levels, with 3 theme pools, ice rink, 2 grand cinema theatres, The Jazz Club, bowling alley, indoor flow ride, and a private observatory</li>
-                <li><strong>The Rooftop</strong> — 75,500 sq ft stretching 300 m, with theme waterbodies, bar & lounge, jogging track, Miyawaki Forest Observatory, yoga deck & padel ball court</li>
-                <li><strong>Township living</strong> — schools, hospitals, retail, Integrated Sports Complex, and the Jaypee Greens Golf & Spa Resort nearby</li>
-              </ul>
-              <p>Explore the full list on the <Link href="/amenities" className="text-[#c8922a] hover:underline font-semibold">Amenities</Link> page.</p>
-            </div>
-          </div>
-
-          <div className="text-center pt-8 border-t border-[#e5dcc5]">
-            <Link
-              href="/contact-us"
-              className="inline-block bg-[#DCA54A] hover:bg-[#C49A2B] text-white text-base font-semibold tracking-widest uppercase px-10 py-4 rounded-md transition-colors shadow-md"
-            >
-              Get Latest Price List & Availability
-            </Link>
+          <div className="space-y-8 mt-10">
+            {formats.map((f) => (
+              <article key={f.title} className={prose.card}>
+                <h2 className={prose.h2}>{f.title}</h2>
+                <p className="text-[#c8922a] text-xs uppercase tracking-widest font-semibold mb-4">
+                  {f.spec}
+                </p>
+                {f.paras.map((para) => (
+                  <p key={para} className={prose.p}>
+                    {para}
+                  </p>
+                ))}
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed">
+                  <strong>This suits:</strong> {f.suits}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* How the Sizes Compare */}
+      <section className={`${prose.section} bg-[#FAF8F4]`}>
+        <div className={prose.inner}>
+          <h2 className={prose.h2}>How the Sizes Compare</h2>
+          <SimpleTable
+            headers={["Format", "Approx. size", "Homes per floor", "Levels"]}
+            rows={[
+              ["4 BHK", "3,930 sq ft carpet upward", "1", "Single"],
+              ["5 BHK", "Scaling to ~11,860 sq ft carpet", "1", "Single"],
+              ["Duplex", "~10,000 sq ft", "1", "Two"],
+              ["Villa", "~15,000 sq ft", "—", "Ground-level"],
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* Specification / Choosing / Availability */}
+      <section className={`${prose.section} bg-white`}>
+        <div className={prose.inner}>
+          <h2 className={prose.h2}>Specification and Finish</h2>
+          <p className={prose.p}>
+            The interiors are conceived by Rockwell Group, the New York practice whose background in
+            hospitality shapes how arrival, transition and shared space are handled throughout.
+            Architecture and technical delivery sit with Gensler; the built form comes from Killa
+            Design; landscape and environmental systems from SWA Group.
+          </p>
+          <p className={prose.p}>
+            CRC has specified materials to a standard the group describes as best-in-class, with
+            several finishes and systems being brought into the Indian residential market for the
+            first time. The complete specification sheet — structure, finishes, fittings, MEP and
+            smart systems — is shared as part of the detailed documentation.
+          </p>
+
+          <h2 className={`${prose.h2} mt-12`}>Choosing a Floor and a Tower</h2>
+          <p className={prose.p}>
+            Because each home occupies a full floor, your choice is really about three things: which
+            of the seven towers, which floor within it, and how that combination orients you to the
+            golf course, the nature park and the wider Jaypee Greens estate.
+          </p>
+          <p className={prose.p}>
+            Towers rise to roughly 42 storeys, so the difference between a lower and an upper floor
+            is substantial in both outlook and pricing. Our sales team can walk you through the
+            master plan and show exactly what each available floor sees.
+          </p>
+
+          <h2 className={`${prose.h2} mt-12`}>Availability and Pricing</h2>
+          <p className={prose.p}>
+            Across all four formats, homes are positioned broadly between ₹12 crore and ₹36 crore,
+            varying with size, tower, floor and orientation.
+          </p>
+          <p className={prose.p}>
+            With only 341 residences in the entire development and sales conducted largely by
+            invitation, the inventory picture changes. For the current availability list,
+            per-square-foot rates, booking amount and payment plan options, speak with us directly.
+          </p>
+          <p className={prose.p}>
+            <strong>Possession:</strong> February 2030 · <strong>UP RERA No.:</strong> {RERA_NO} ·{" "}
+            <ReraLink />
+          </p>
+
+          <h2 className={`${prose.h2} mt-12`}>See the Plans</h2>
+          <p className={prose.p}>
+            We can send the complete floor plan set for any format, along with the master plan,
+            specification sheet and brochure — or arrange a site visit so you can stand on a floor
+            and see the outlook for yourself.
+          </p>
+          <CtaRow
+            items={[
+              { label: "Request Floor Plans", href: "/floor-plans" },
+              { label: "Download Brochure", brochure: true },
+              { label: "Book a Site Visit", href: "/contact-us" },
+            ]}
+          />
+        </div>
+      </section>
+
       <div className="relative">
         <StickyDownloadButton />
       </div>
-      <VillaFeatures />
       <ReasonsToInvest />
     </>
   );

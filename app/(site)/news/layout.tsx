@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "News & Updates | CRC The Peridona",
+  title: "News | CRC The Peridona, Jaypee Greens — Market & Project Updates",
   description:
-    "Stay updated with the latest news, developments, and infrastructure updates around CRC The Peridona, Jaypee Greens, Greater Noida and the Yamuna Expressway.",
+    "Latest news on CRC The Peridona at Jaypee Greens, Greater Noida — project milestones, construction progress, circle rate changes and NCR luxury market updates.",
+  alternates: { canonical: "https://www.crcperidona.in/news" },
 };
 
 export default function NewsLayout({

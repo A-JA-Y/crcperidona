@@ -1,23 +1,64 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import EmiCalculator from "@/components/EmiCalculator";
 import ReasonsToInvest from "@/components/ReasonToInvest";
+import ModalWrapper from "@/components/ModalWrapper";
 import StickyDownloadButton from "@/components/StickyButton";
+import CtaRow from "@/components/CtaRow";
+import SimpleTable from "@/components/SimpleTable";
+import { RERA_NO, ReraLink } from "@/components/ProjectSnapshot";
+import { prose } from "@/utils/prose";
 
 export const metadata: Metadata = {
-  title: "CRC The Peridona Price 2026 | ₹12.5 Cr* Onwards at Jaypee Greens",
+  title: "CRC The Peridona Price List 2026 | 4 & 5 BHK, Duplex, Villa Costs",
   description:
-    "CRC The Peridona price at Jaypee Greens, Greater Noida starts from ₹12.5 Cr* onwards for 4, 4.5 & 5.5 BHK residences from 4,950 sq ft. See the price table & EMI calculator.",
+    "Current pricing for CRC The Peridona, Jaypee Greens Greater Noida. Indicative ranges by configuration, payment plan structure, booking amount and what's included.",
   alternates: { canonical: "https://www.crcperidona.in/price" },
-  keywords: "CRC The Peridona price, CRC The Peridona Greater Noida, CRC Peridona Jaypee Greens, luxury apartments Jaypee Greens price, golf course residences Greater Noida, CRC Group",
+  keywords:
+    "CRC The Peridona price, CRC The Peridona price list 2026, CRC The Peridona Greater Noida, CRC Peridona Jaypee Greens, luxury apartments Jaypee Greens price, CRC Group",
 };
 
-const priceTable = [
-  { type: "4 BHK", size: "From 4,950 sq ft*", config: "One Floor One Apartment*", price: "₹12.5 Cr* Onwards" },
-  { type: "4.5 BHK", size: "On Request*", config: "One Floor One Apartment*", price: "Price on Request" },
-  { type: "5.5 BHK", size: "On Request*", config: "One Floor One Apartment*", price: "Price on Request" },
-  { type: "Penthouse", size: "On Request*", config: "Top-of-Tower Residence", price: "Price on Request" },
+const priceDrivers = [
+  {
+    name: "Configuration.",
+    text: "The jump from a 4 BHK to a duplex or villa is a jump in format, not just area. Per-square-foot rates differ across formats.",
+  },
+  {
+    name: "Floor level.",
+    text: "Towers rise to roughly 42 storeys. Higher floors command a premium, and the gradient across forty-plus floors is meaningful.",
+  },
+  {
+    name: "Tower and orientation.",
+    text: "Seven towers sit differently against the golf course, the nature park and the wider Jaypee Greens estate. Direct course outlook is priced accordingly.",
+  },
+  {
+    name: "Timing.",
+    text: "Pricing at launch stage differs from pricing as construction progresses toward the February 2030 possession date. Early-stage entry has historically carried an advantage on projects of this profile — though that is a pattern, not a guarantee.",
+  },
+];
+
+const paymentPlans = [
+  {
+    name: "Construction-linked plan",
+    text: "Payments released against verified construction milestones. Lower exposure early, spread across the build period.",
+  },
+  {
+    name: "Down payment plan",
+    text: "A larger proportion paid upfront in exchange for a price advantage.",
+  },
+  {
+    name: "Flexi or custom structures",
+    text: "Arranged case by case for buyers with specific liquidity requirements.",
+  },
+];
+
+const extraCosts = [
+  <><strong>Stamp duty and registration</strong> as applicable in Uttar Pradesh</>,
+  <><strong>GST</strong> at the prevailing rate for under-construction property</>,
+  <><strong>Preferential location charges</strong> where applicable to floor or orientation</>,
+  <><strong>Club membership and one-time charges</strong></>,
+  <><strong>Interest-free maintenance security and maintenance charges</strong> post-possession</>,
+  <><strong>Parking and power backup charges</strong> as specified</>,
 ];
 
 export default function PricePage() {
@@ -25,144 +66,163 @@ export default function PricePage() {
     <>
       <PageBanner
         eyebrow="Investment"
-        title="Price"
-        subtitle="CRC The Peridona Price at Jaypee Greens, Greater Noida"
+        title="Price List"
+        subtitle="CRC The Peridona pricing at Jaypee Greens, Greater Noida — indicative ranges by configuration, payment plans, and what sits beyond the base price."
       />
+      <ModalWrapper />
 
-      <section className="w-full bg-white py-16 px-6">
-        <div className="max-w-5xl mx-auto space-y-12">
+      <section className={`${prose.section} bg-white`}>
+        <div className={prose.inner}>
+          <h1 className={prose.h1}>CRC The Peridona Price List 2026</h1>
+          <p className={prose.lead}>
+            Residences at The Peridona are positioned between roughly{" "}
+            <strong>₹12 crore and ₹36 crore</strong>, depending on configuration, tower, floor level
+            and orientation.
+          </p>
+          <p className={prose.p}>
+            Below is how that range breaks down, what drives the variation, and what you should
+            expect on top of the base figure. Where we can’t publish an exact number, we say so
+            rather than dressing up a placeholder.
+          </p>
 
-          <div className="prose max-w-none text-gray-700">
-            <h1 className="text-3xl font-semibold text-gray-900 mb-6 border-b pb-4">CRC The Peridona Price at Jaypee Greens, Greater Noida</h1>
-            <p className="text-lg leading-relaxed mb-6">
-              The tentative price at CRC The Peridona starts from <strong>₹12.5 Cr* onwards</strong> for residences in 4 BHK, 4.5 BHK and 5.5 BHK typologies starting from 4,950 sq ft. The project by CRC Group is a 6.80-acre ultra-luxury enclave inside the 452-acre Jaypee Greens golf township in Greater Noida — 7 towers, just 341 residences, 43 floors, built on the One Floor One Apartment* concept with a private lift lobby and 2-side views of the golf course and the nature park. Exact unit pricing depends on typology, floor and orientation and is shared on request. Ask our authorised channel-partner team for the latest official price details.
+          {/* Indicative Ranges by Configuration */}
+          <h2 className={`${prose.h2} mt-12`}>Indicative Ranges by Configuration</h2>
+          <SimpleTable
+            headers={["Configuration", "Approx. size", "Indicative range"]}
+            rows={[
+              ["4 BHK residence", "From ~3,930 sq ft carpet", "On request"],
+              ["5 BHK residence", "Up to ~11,860 sq ft carpet", "On request"],
+              ["Duplex", "~10,000 sq ft", "On request"],
+              ["Villa", "~15,000 sq ft", "On request"],
+            ]}
+            className="mb-6"
+          />
+          <p className={prose.p}>
+            The overall band across all formats runs ₹12 Cr to ₹36.2 Cr. We share
+            configuration-specific figures and the live per-square-foot rate directly, because CRC
+            revises pricing across construction stages and a number published here would be stale
+            within a quarter.
+          </p>
+          <CtaRow items={[{ label: "Request the Current Price List →", brochure: true }]} />
+
+          {/* Why Pricing Isn't Posted Publicly */}
+          <h2 className={`${prose.h2} mt-12`}>Why Pricing Isn’t Posted Publicly</h2>
+          <p className={prose.p}>
+            CRC is selling this inventory largely by invitation. With only 341 residences in the
+            entire development and one home per floor, each unit is effectively unique — a
+            22nd-floor home in one tower and a 22nd-floor home in another are different products
+            with different views and different prices.
+          </p>
+          <p className={prose.p}>
+            A single published rate card would be misleading for most of the inventory. So instead
+            of a number that applies to nothing, we send you the specific figure for the specific
+            floors that are actually available.
+          </p>
+
+          {/* What Moves the Price */}
+          <h2 className={`${prose.h2} mt-12`}>What Moves the Price</h2>
+          <p className={prose.p}>
+            Four variables account for most of the spread between the bottom and the top of the
+            range.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            {priceDrivers.map((d) => (
+              <div key={d.name} className={prose.card}>
+                <h3 className={prose.h3}>{d.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{d.text}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Payment Plan */}
+          <h2 className={`${prose.h2} mt-12`}>Payment Plan</h2>
+          <p className={prose.p}>
+            CRC offers structured payment options rather than a single fixed schedule. The common
+            structures for a project at this stage are:
+          </p>
+          <ul className={prose.ul}>
+            {paymentPlans.map((p) => (
+              <li key={p.name} className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>{p.name}</strong> — {p.text}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className={prose.p}>
+            Booking amounts and the full milestone schedule are confirmed at the time of enquiry,
+            since CRC adjusts these across sales phases. Home loan tie-ups with leading lenders are
+            in place for buyers who want to finance a portion.
+          </p>
+
+          {/* Costs Beyond the Base Price */}
+          <h2 className={`${prose.h2} mt-12`}>Costs Beyond the Base Price</h2>
+          <p className={prose.p}>The headline figure is not the total outgo. Budget for:</p>
+          <ul className={prose.ul}>
+            {extraCosts.map((item, i) => (
+              <li key={i} className={prose.li}>
+                <span className={prose.tick}>•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className={prose.p}>
+            We’ll give you a full cost sheet — base price plus every applicable charge, totalled —
+            rather than leaving you to discover them at agreement stage.
+          </p>
+
+          {/* How It Compares */}
+          <h2 className={`${prose.h2} mt-12`}>How It Compares</h2>
+          <p className={prose.p}>
+            At this specification level, the honest comparison is not against other Greater Noida
+            projects. It is against Gurgaon’s Golf Course Road and DLF corridors, where equivalent
+            whole-floor residences with comparable design pedigree typically trade at a higher
+            per-square-foot rate.
+          </p>
+          <p className={prose.p}>
+            Delhi-NCR recorded around 3,960 luxury home sales at ₹6 crore and above in the first
+            half of 2025 — roughly three times the previous year’s figure. The segment has depth.
+            What The Peridona offers within it is scarcity: 341 homes on seven acres inside an
+            established golf estate, with land that cannot be extended.
+          </p>
+          <p className={prose.p}>
+            Whether that arithmetic works for you depends on your holding period and your view on
+            the Jewar airport corridor. We would rather you test that yourself than take our framing
+            for it.
+          </p>
+
+          {/* Registration and Timeline */}
+          <h2 className={`${prose.h2} mt-12`}>Registration and Timeline</h2>
+          <div className={`${prose.card} mb-6 text-sm text-gray-600 space-y-2`}>
+            <p>
+              <strong>Possession:</strong> February 2030
             </p>
-            <Link
-              href="/contact-us"
-              className="inline-block text-[#c8922a] hover:underline font-semibold"
-            >
-              Get Latest Price Details &rarr;
-            </Link>
-
-            <p className="mt-8 text-base leading-relaxed">
-              If you are researching the CRC The Peridona price, this page gives you an honest, up-to-date view of the typologies, indicative sizes and how to get the official, unit-specific quote. The Peridona sits inside Jaypee Greens — a 452-acre golf township with a 130-acre, 18-hole Greg Norman Design Championship Course, a 60-acre nature park and a 10-acre practice range. The figures below are tentative/indicative to help you shortlist — the confirmed price for a specific residence is shared on request, since it varies by typology, floor and view. *Indicative; subject to approved building plan.
+            <p>
+              <strong>Developer:</strong> CRC Group, in partnership with Jaiprakash Associates Ltd
+            </p>
+            <p>
+              <strong>UP RERA Registration No.:</strong> {RERA_NO} · <ReraLink />
             </p>
           </div>
+          <p className={prose.note}>
+            Only the RERA-registered figures and the executed agreement are binding. Everything on
+            this page is indicative and subject to revision by the developer.
+          </p>
 
-          <div>
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">CRC The Peridona Price Table 2026</h2>
-            <p className="mb-6 text-gray-700">The table below covers the CRC The Peridona typologies at Jaypee Greens, Greater Noida, with indicative size, residence concept and tentative price.</p>
-            <div className="overflow-x-auto rounded-lg border border-[#e5dcc5] shadow-sm mb-4">
-              <table className="w-full text-sm text-left">
-                <thead className="bg-[#FAF8F4] text-[#c8922a] uppercase text-xs tracking-wider">
-                  <tr>
-                    <th className="px-5 py-4">Typology</th>
-                    <th className="px-5 py-4">Indicative Size</th>
-                    <th className="px-5 py-4">Concept</th>
-                    <th className="px-5 py-4">Tentative Price</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {priceTable.map((row) => (
-                    <tr key={row.type} className="border-t border-[#e5dcc5]">
-                      <td className="px-5 py-4 font-semibold text-gray-900">{row.type}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.size}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.config}</td>
-                      <td className="px-5 py-4 text-gray-800 font-semibold">{row.price}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-xs text-gray-500 leading-relaxed mb-6 italic">
-              *Indicative; subject to approved building plan. Prices are tentative and subject to change without prior notice. Please contact our team for the latest availability, payment plans and official pricing.
-            </p>
-            <Link
-              href="/contact-us"
-              className="inline-block text-[#c8922a] hover:underline font-semibold"
-            >
-              Request the Official CRC The Peridona Price Details &rarr;
-            </Link>
-          </div>
-
-          <div className="prose max-w-none text-gray-700">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">CRC The Peridona Price by Configuration</h2>
-            <div className="space-y-6">
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">4 BHK Price — 4,900 sq ft* (₹12.5 Cr* Onwards)</h3>
-                <p>The 4 BHK is the entry point into The Peridona&apos;s full-floor living — a 4,900 sq ft* residence spanning its own level with a private lift lobby and 2-side views of the golf course and nature park. With the project&apos;s tentative pricing starting at ₹12.5 Cr* onwards, the exact quote for a specific 4 BHK unit is shared on request.</p>
-              </div>
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">5 BHK Price — 5,600 sq ft* (Price on Request)</h3>
-                <p>The 5 BHK offers 5,600 sq ft* of full-floor space for larger and multi-generational families, with imported-marble living areas, engineered-wood bedrooms and smart-home provisions. Unit-specific pricing is shared on request.</p>
-              </div>
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">4 BHK Grande Price — 6,700 sq ft* (Price on Request)</h3>
-                <p>The larger 4 BHK format spreads 6,700 sq ft* across a single floor plate — the most expansive 4 BHK in the collection. Pricing for specific floors and orientations is shared on request.</p>
-              </div>
-              <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5]">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">Penthouse Price — (Price on Request)</h3>
-                <p>The Penthouses crown the ~160 m* towers beside the 75,500 sq ft rooftop with its observatories, theme waterbodies and yoga deck. Penthouse pricing is exclusively on request through a private preview.</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="prose max-w-none text-gray-700">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">How CRC The Peridona Pricing Is Shared</h2>
-            <p className="mb-4">The Peridona is a limited collection — only 341 residences across 7 towers in the entire 6.80-acre enclave, within a township of only ~3,600 units in total. Because inventory in each typology is limited and every residence occupies its own floor, pricing is shared on a one-to-one basis rather than as a fixed rate card.</p>
-            <p className="mb-6">The most reliable route is to request the current price sheet from our channel-partner team, or to schedule a private preview at the experience center, where unit-level pricing, payment plans and availability are walked through in detail.</p>
-            <Link
-              href="/contact-us"
-              className="inline-block text-[#c8922a] hover:underline font-semibold"
-            >
-              Request a Private Preview &rarr;
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="prose max-w-none text-gray-700">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">What Affects the CRC The Peridona Price?</h2>
-              <p className="mb-4">Several factors influence the final CRC The Peridona Greater Noida price for any given residence:</p>
-              <ul className="list-disc pl-5 space-y-2 mb-6">
-                <li><strong>Typology (4 / 4.5 / 5.5 BHK):</strong> Larger typologies and Penthouses command higher pricing.</li>
-                <li><strong>Size:</strong> Residences start from 4,950 sq ft, with floor-plan configurations of 4,900 sq ft*, 5,600 sq ft* and 6,700 sq ft* listed on the official microsite.</li>
-                <li><strong>Floor level:</strong> Across 43 floors, higher residences carry a premium.</li>
-                <li><strong>Orientation and views:</strong> Every residence gets 2-side views — golf course to the north and the 60-acre nature park to the south — but specific frontages are priced differently.</li>
-                <li><strong>Penthouse tier:</strong> Top-of-tower residences beside the 75,500 sq ft rooftop are priced exclusively on request.</li>
-                <li><strong>Current availability:</strong> With just 341 residences, limited inventory in any typology can move pricing.</li>
-              </ul>
-              <p>Because of these variables, the figures above are a guide — we share a unit-specific quote for the exact residence you shortlist.</p>
-            </div>
-
-            <div className="prose max-w-none text-gray-700">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Why CRC The Peridona Is a Smart Investment</h2>
-              <p className="mb-4">Beyond the CRC The Peridona price, here&apos;s why buyers and investors consider this address:</p>
-              <ul className="list-disc pl-5 space-y-2 mb-6">
-                <li>Set inside the 452-acre Jaypee Greens golf township, ~2 km from Pari Chowk.</li>
-                <li>Jewar Noida International Airport ~35 km away — a major appreciation driver.</li>
-                <li>Direct access to the Yamuna Expressway and connectivity to the Noida–Greater Noida Expressway.</li>
-                <li>130-acre, 18-hole Greg Norman Design Championship Course with a 25-year-old green cover.</li>
-                <li>Low density — only ~3,600 units in the entire township, and just 341 residences at The Peridona.</li>
-                <li>A global design roster: Killa Design, Gensler, Rockwell Group, SWA and more, assembled by CRC Group.</li>
-                <li>One Floor One Apartment* living with private lift lobbies and 2-side views.</li>
-              </ul>
-              <p>For end-users this means privacy and an abundant lifestyle; for investors it offers a rare, low-density ultra-luxury asset in Greater Noida.</p>
-            </div>
-          </div>
-
-          <div className="prose max-w-none text-gray-700">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">EMI Calculator — Plan Your CRC The Peridona Purchase</h2>
-            <p className="mb-4">Use the on-page EMI calculator to estimate your monthly outflow based on loan amount, down payment, tenure and interest rate. As an illustration, a typical home-loan structure for a residence at the ₹12.5 Cr* onwards price point can be planned around a 20% advance with a 20–25 year tenure — adjust the sliders to match your own budget and bank offer.</p>
-            <p className="italic text-sm text-gray-500 mb-6">(EMI figures are indicative and for planning purposes only; actual rates depend on your lender and profile.)</p>
-          </div>
-
-          <div className="bg-[#FAF8F4] p-6 rounded-lg border border-[#e5dcc5] text-sm text-gray-600 space-y-2">
-            <p><strong>Project:</strong> CRC The Peridona, C1, Jaypee Greens, Greater Noida, Uttar Pradesh 201310</p>
-            <p><strong>Developer:</strong> CRC Group</p>
-            <p><strong>RERA:</strong> UPRERAPRJ298067/05/2025 — verify at www.up-rera.in</p>
-            <p><strong>Contact:</strong> +91 7304216059</p>
-            <p><strong>Page last reviewed:</strong> July 2026</p>
-          </div>
+          {/* Get the Numbers */}
+          <h2 className={`${prose.h2} mt-12`}>Get the Numbers</h2>
+          <p className={prose.p}>
+            Send us your preferred configuration and floor range and we’ll come back with current
+            pricing, the applicable payment plan, booking amount and a complete cost sheet.
+          </p>
+          <CtaRow
+            items={[
+              { label: "Request Price List", href: "/contact-us" },
+              { label: "Download Brochure", brochure: true },
+              { label: "Book a Site Visit", href: "/contact-us" },
+            ]}
+          />
         </div>
       </section>
 

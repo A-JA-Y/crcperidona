@@ -1,23 +1,25 @@
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
-import FloorPlanSection from "@/components/FloorPageSection"
+import FloorPlanSection from "@/components/FloorPageSection";
 
 import ModalWrapper from "@/components/ModalWrapper";
 import StickyDownloadButton from "@/components/StickyButton";
 
+const title = "CRC The Peridona Floor Plans | 4, 4.5 & 5.5 BHK Layouts, Jaypee Greens";
+const description =
+  "View CRC The Peridona floor plans — 4 BHK, 4.5 BHK, 5.5 BHK and penthouse layouts from 4,950 sq ft, each a full-floor residence with private lift lobby at Jaypee Greens.";
+
 export const metadata: Metadata = {
-  title: "CRC The Peridona Floor Plans | 4 BHK, 5 BHK & Penthouse Layouts",
-  description:
-    "Explore CRC The Peridona floor plans — 4 BHK 4,900 sq ft*, 5 BHK 5,600 sq ft*, 4 BHK 6,700 sq ft* & Penthouses at Jaypee Greens, Greater Noida. Download brochure.",
+  title,
+  description,
   alternates: {
     canonical: "https://www.crcperidona.in/floor-plans",
   },
   keywords:
     "CRC The Peridona floor plan, CRC The Peridona Greater Noida, CRC Peridona Jaypee Greens, luxury apartments Jaypee Greens, 4 BHK floor plan Greater Noida, penthouse Jaypee Greens",
   openGraph: {
-    title: "CRC The Peridona Floor Plans | 4 BHK, 5 BHK & Penthouse Layouts",
-    description:
-      "Explore CRC The Peridona floor plans — 4 BHK 4,900 sq ft*, 5 BHK 5,600 sq ft*, 4 BHK 6,700 sq ft* & Penthouses at Jaypee Greens, Greater Noida. Download brochure.",
+    title,
+    description,
     url: "https://www.crcperidona.in/floor-plans",
     type: "website",
   },
@@ -28,8 +30,8 @@ export default function FloorPlansPage() {
     <>
       <PageBanner
         eyebrow="Floor Plans"
-        title="CRC The Peridona Floor Plans"
-        subtitle="Explore full-floor 4 BHK, 5 BHK and Penthouse layouts at Jaypee Greens, Greater Noida — every residence with a private lift lobby and 2-side views."
+        title="Floor Plans"
+        subtitle="4 BHK, 4.5 BHK, 5.5 BHK and penthouse layouts from 4,950 sq ft — every plan a full-floor residence with a private lift lobby and 2-side views."
       />
       <ModalWrapper />
       <FloorPlanSection />

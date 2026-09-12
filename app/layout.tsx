@@ -29,9 +29,9 @@ const workSans = Work_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.crcperidona.in"),
-  title: "CRC The Peridona Jaypee Greens Greater Noida | 4, 4.5 & 5.5 BHK Luxury Residences by CRC Group",
+  title: "CRC The Peridona | Ultra Luxury 4 & 5 BHK, Jaypee Greens Greater Noida",
   description:
-    "CRC The Peridona at Jaypee Greens, Greater Noida offers 4, 4.5 & 5.5 BHK ultra-luxury golf course residences from 4,950 sq ft, ₹12.5 Cr* onwards, by CRC Group.",
+    "341 residences inside Jaypee Greens Golf Course. One home per floor, 4 BHK to 15,000 sq ft villas. Check CRC The Peridona pricing, layouts and possession timeline.",
 
   alternates: {
     canonical: "https://www.crcperidona.in/",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "CRC The Peridona Jaypee Greens Greater Noida",
+    title: "CRC The Peridona | Ultra Luxury 4 & 5 BHK, Jaypee Greens Greater Noida",
     description:
-      "Ultra-luxury 4, 4.5 & 5.5 BHK golf course residences at Jaypee Greens, Greater Noida by CRC Group.",
+      "341 residences inside Jaypee Greens Golf Course. One home per floor, 4 BHK to 15,000 sq ft villas. Check CRC The Peridona pricing, layouts and possession timeline.",
     url: "https://www.crcperidona.in/",
     siteName: "CRC The Peridona",
     images: [

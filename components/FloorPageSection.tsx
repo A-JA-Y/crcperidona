@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import plan1 from "@/assets-crc/residenceLiving.webp";
 import plan2 from "@/assets-crc/residenceBalcony.webp";
@@ -9,6 +10,10 @@ import plan4 from "@/assets-crc/gallery_tower2.webp";
 import brochureImage from "@/assets-crc/gallery_tower3.webp";
 
 import { useModal } from "./ModalContext";
+import CtaRow from "./CtaRow";
+import SimpleTable from "./SimpleTable";
+import ProjectSnapshot from "./ProjectSnapshot";
+import { prose } from "@/utils/prose";
 
 // Residence floor plan data (indicative; subject to approved building plan)
 const residencePlans = [
@@ -19,8 +24,12 @@ const residencePlans = [
     config: "4 BHK",
     price: "Price on Request",
     image: plan1,
-    description:
-      "One Floor One Apartment* residence with a private lift lobby, imported-marble living and dining spaces, and 2-side views of the golf course and nature park.",
+    intro: "The entry layout, and larger than the top-end offering at most projects in Greater Noida.",
+    paras: [
+      "Four bedrooms, each with attached bath and wardrobe wall, arranged along the nature park side of the floor. Living and dining occupy a continuous span on the golf course side. The private lift lobby opens into a dedicated entrance foyer, so arrival happens inside your home, not in a corridor.",
+      "Service areas — kitchen, utility, staff — sit on their own circulation so household work never crosses family or guest movement.",
+    ],
+    bestFor: "Families of four to six wanting a full-floor home on a single level.",
     features: ["One Floor One Apartment*", "Private Lift Lobby", "Golf Course View", "Nature Park View"],
   },
   {
@@ -30,19 +39,25 @@ const residencePlans = [
     config: "5 BHK",
     price: "Price on Request",
     image: plan2,
-    description:
-      "Expansive 5 BHK layout for larger families — engineered-wood bedrooms, modular kitchen with built-in appliances, and dual golf-and-park frontage on every floor.",
+    intro: "The additional bedroom here comes with additional separation, not just additional area.",
+    paras: [
+      "The extra 700 sq ft lets the plan pull a guest or parent suite away from the main bedroom cluster, giving it its own quiet corner of the floor. The living and dining span widens, and the formal entertaining zone gains enough distance from the private wing that hosting no longer puts the whole house on display.",
+    ],
+    bestFor: "Multi-generational households, or buyers who entertain at home regularly.",
     features: ["One Floor One Apartment*", "Private Lift Lobby", "2-Side Views", "Smart-Home Provisions"],
   },
   {
     id: "r3",
-    type: "4 BHK Grande",
+    type: "4 BHK (larger)",
     size: "6,700 sq ft*",
     config: "4 BHK",
     price: "Price on Request",
     image: plan3,
-    description:
-      "The larger 4 BHK format — generous living, dining and family zones across a full floor plate, with VRV/VRF air conditioning and double-glazed windows throughout.",
+    intro: "Four bedrooms across 6,700 sq ft is a deliberate choice: fewer rooms, each considerably larger.",
+    paras: [
+      "Bedrooms approach suite proportions with room for a seating area or study within the bedroom itself. Living, dining and the family lounge become three distinct spaces rather than one open span asked to do all three jobs. The balcony frontage widens accordingly.",
+    ],
+    bestFor: "Buyers who want scale within each room rather than more rooms.",
     features: ["One Floor One Apartment*", "Full-Floor Living", "Golf Course View", "VRV/VRF Air Conditioning"],
   },
   {
@@ -52,9 +67,38 @@ const residencePlans = [
     config: "Penthouse",
     price: "Price on Request",
     image: plan4,
-    description:
-      "Crowning residences near the ~160 m* summit of the towers, close to the 75,500 sq ft rooftop with its observatories, theme waterbodies and yoga deck.",
+    intro:
+      "The penthouse residences sit at the top of the towers, with the fullest expression of the 2-side outlook — the 130-acre Greg Norman championship golf course on one side, the 60-acre nature park on the other, from roughly 160 metres up.",
+    paras: ["Layouts and areas are shared on request."],
+    bestFor: "",
     features: ["Top-of-Tower Living", "Rooftop Access", "Panoramic Views", "Private Lift Lobby"],
+  },
+];
+
+const everyPlanIncludes = [
+  "One Floor One Apartment* concept",
+  "Private lift lobby per residence",
+  "2-side views — golf course and nature park",
+  "Imported marble in living and dining",
+  "Engineered wood flooring in bedrooms",
+  "Modular kitchen with built-in appliances",
+  "VRV/VRF air conditioning and smart-home provisions",
+  "Double-glazed windows and European sanitaryware",
+  "High-speed lifts serving private lobbies",
+];
+
+const readingThePlan = [
+  {
+    name: "Which side faces what.",
+    text: "Both outlooks are good, but they are different. The golf course side is open and long-range; the nature park side is greener and quieter. Where your bedrooms sit relative to those two matters more than the total area.",
+  },
+  {
+    name: "Floor level within the tower.",
+    text: "With 43 floors, the outlook at level 8 and level 38 are different products at different prices.",
+  },
+  {
+    name: "Tower position.",
+    text: "Seven towers sit differently against the course and the park. The master plan shows how, and we can walk you through it.",
   },
 ];
 
@@ -75,115 +119,72 @@ export default function FloorPlanSection() {
     }
   }, [isLeadSubmitted]);
 
-  // Price comparison table data
-  const priceData = [
-    { type: "4 BHK", size: "4,900 sq ft*", config: "4 BHK", price: "Price on Request" },
-    { type: "5 BHK", size: "5,600 sq ft*", config: "5 BHK", price: "Price on Request" },
-    { type: "4 BHK Grande", size: "6,700 sq ft*", config: "4 BHK", price: "Price on Request" },
-    { type: "Penthouse", size: "On Request*", config: "Penthouse", price: "Price on Request" },
-  ];
-
   return (
     <section className="w-full py-16 px-6" id="floor-plans" aria-label="CRC The Peridona Floor Plans">
-      <div className="max-w-6xl mx-auto flex flex-col gap-12">
-        {/* H1 Heading */}
-        <div className="text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            CRC The Peridona Floor Plans — 4 BHK, 5 BHK &amp; Penthouse Residences at Jaypee Greens
+      <div className="max-w-5xl mx-auto flex flex-col gap-12">
+        {/* Intro */}
+        <div>
+          <h1 className={prose.h1}>
+            CRC The Peridona Floor Plans — 4, 4.5 &amp; 5.5 BHK Layouts at Jaypee Greens
           </h1>
-          <p className="text-gray-600 max-w-4xl mx-auto text-sm md:text-base leading-relaxed">
-            Explore the CRC The Peridona floor plan collection — expansive full-floor
-            residences set within a 6.80-acre enclave inside the 452-acre Jaypee Greens
-            golf township, Greater Noida. The configurations listed on the official
-            microsite span a 4 BHK of 4,900 sq ft*, a 5 BHK of 5,600 sq ft*, a larger
-            4 BHK of 6,700 sq ft* and Penthouses — all built on the One Floor One
-            Apartment* concept with a private lift lobby and 2-side views of the golf
-            course and the 60-acre nature park. *Indicative; subject to approved
-            building plan.
+          <p className={prose.lead}>
+            Every layout at The Peridona starts from the same premise: one apartment per floor.
           </p>
-          <button
-            onClick={() => openModal()}
-            className="mt-6 bg-[#DCA54A] text-white text-sm px-8 py-3 rounded uppercase font-semibold hover:bg-[#c9943a] transition"
-            aria-label="Download Brochure"
-          >
-            Download Brochure
-          </button>
-        </div>
-
-        {/* H2 - Price Chart */}
-        <div className="mt-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-6">
-            CRC The Peridona Configurations at a Glance
-          </h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto text-sm mb-8">
-            The Peridona offers just 341 residences across 7 towers of 43 floors —
-            typologies of 4 BHK, 4.5 BHK and 5.5 BHK starting from 4,950 sq ft, with
-            a tentative price of ₹12.5 Cr* onwards. Exact unit pricing is shared on
-            request. Use the table below to compare the floor-plan configurations at
-            a glance:
+          <p className={prose.p}>
+            That is not a marketing line about exclusivity. It is a structural decision that
+            determines what the plan can do. Because no floor is split between two or three homes,
+            the plan is free to run the full width of the tower, place the living spaces against the
+            golf course, and put the bedrooms against the nature park — with a private lift lobby
+            opening directly into your own home rather than a shared landing.
           </p>
-
-          <div className="overflow-x-auto shadow-md rounded-lg">
-            <table className="w-full text-sm md:text-base border-collapse">
-              <thead>
-                <tr className="bg-[#DCA54A] text-white">
-                  <th className="px-4 py-3 text-left">Residence</th>
-                  <th className="px-4 py-3 text-left">Indicative Size</th>
-                  <th className="px-4 py-3 text-left">Configuration</th>
-                  <th className="px-4 py-3 text-left">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {priceData.map((item, idx) => (
-                  <tr
-                    key={item.type}
-                    className={`${
-                      idx % 2 === 0 ? "bg-white" : "bg-gray-50"
-                    } hover:bg-gray-100 transition`}
-                  >
-                    <td className="px-4 py-3 font-semibold">{item.type}</td>
-                    <td className="px-4 py-3">{item.size}</td>
-                    <td className="px-4 py-3">{item.config}</td>
-                    <td className="px-4 py-3 font-semibold text-[#DCA54A]">{item.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-xs text-gray-500 mt-3 text-center">
-            *Indicative; subject to approved building plan. Prices are tentative
-            (₹12.5 Cr* onwards) and subject to change. Contact our channel partner
-            team for the most current CRC The Peridona price list.
+          <p className={prose.p}>
+            Across 7 towers rising 43 floors on 6.80 acres, there are only 341 residences in total.
           </p>
         </div>
 
-        {/* H2 - Floor Plan Configurations */}
-        <div className="mt-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-6">
-            CRC The Peridona Floor Plan Configurations
-          </h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto text-sm mb-10">
-            CRC The Peridona is an ultra-luxury development by CRC Group — every floor
-            plan follows the One Floor One Apartment* concept, so each residence spans
-            its own level with a private lift lobby and uninterrupted 2-side views:
-            the Greg Norman-designed golf course to one side and the 60-acre nature
-            park to the other.
+        {/* Configurations at a Glance */}
+        <div>
+          <h2 className={prose.h2}>Configurations at a Glance</h2>
+          <SimpleTable
+            headers={["Layout", "Indicative size", "Views"]}
+            rows={[
+              ["4 BHK", "4,900 sq ft*", "Golf course + nature park"],
+              ["5 BHK", "5,600 sq ft*", "Golf course + nature park"],
+              ["4 BHK (larger)", "6,700 sq ft*", "Golf course + nature park"],
+              ["Penthouse", "On request", "Golf course + nature park"],
+            ]}
+            className="mb-4"
+          />
+          <p className={prose.p}>
+            Typologies are offered as <strong>4 BHK, 4.5 BHK and 5.5 BHK</strong>, starting from
+            4,950 sq ft.
           </p>
+          <p className={`${prose.note} mb-6`}>*Indicative; subject to the approved building plan.</p>
+          <CtaRow items={[{ label: "Unlock the Full Plan Set →", brochure: true }]} />
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Layouts — detail + unlockable plan cards */}
+        <div>
+          <h2 className={prose.h2}>The Layouts</h2>
+          <p className={`${prose.p} mb-8`}>
+            Click any plan to view it. Plans unlock once you share your details with our team.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
             {residencePlans.map((plan) => (
-              <div
+              <article
                 key={plan.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer border border-gray-100"
-                onClick={() => {
-                  if (!isUnlocked) {
-                    openModal();
-                  } else {
-                    setActivePlan(plan);
-                  }
-                }}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition border border-[#e5dcc5] flex flex-col"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div
+                  className="relative h-48 overflow-hidden cursor-pointer"
+                  onClick={() => {
+                    if (!isUnlocked) {
+                      openModal();
+                    } else {
+                      setActivePlan(plan);
+                    }
+                  }}
+                >
                   <Image
                     src={plan.image}
                     alt={`${plan.type} CRC The Peridona Floor Plan - ${plan.size}`}
@@ -201,14 +202,24 @@ export default function FloorPlanSection() {
                     {plan.config}
                   </span>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-bold text-gray-900">
-                    {plan.type} Floor Plan <span className="text-sm font-normal">({plan.size})</span>
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-xl font-bold text-gray-900 mb-1">
+                    {plan.type} — {plan.size}
                   </h3>
-                  <p className="text-sm text-[#DCA54A] font-semibold">{plan.config} · {plan.price}</p>
-                  <p className="text-xs text-gray-600 mt-2 line-clamp-2">{plan.description}</p>
-                  <div className="flex flex-wrap gap-1 mt-3">
-                    {plan.features.slice(0, 3).map((feature) => (
+                  <p className="text-sm text-[#DCA54A] font-semibold mb-3">{plan.price}</p>
+                  <p className="text-gray-700 text-sm leading-relaxed mb-3">{plan.intro}</p>
+                  {plan.paras.map((para) => (
+                    <p key={para} className="text-gray-600 text-sm leading-relaxed mb-3">
+                      {para}
+                    </p>
+                  ))}
+                  {plan.bestFor && (
+                    <p className="text-gray-700 text-sm leading-relaxed">
+                      <strong>Best for:</strong> {plan.bestFor}
+                    </p>
+                  )}
+                  <div className="flex flex-wrap gap-1 mt-4">
+                    {plan.features.map((feature) => (
                       <span
                         key={feature}
                         className="text-[10px] bg-gray-100 text-gray-700 px-2 py-1 rounded"
@@ -216,82 +227,49 @@ export default function FloorPlanSection() {
                         {feature}
                       </span>
                     ))}
-                    {plan.features.length > 3 && (
-                      <span className="text-[10px] text-gray-500">+{plan.features.length - 3} more</span>
-                    )}
                   </div>
                 </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* What Every Plan Includes */}
+        <div>
+          <h2 className={prose.h2}>What Every Plan Includes</h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {everyPlanIncludes.map((item) => (
+              <li key={item} className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Reading the Plan Before You Visit */}
+        <div>
+          <h2 className={prose.h2}>Reading the Plan Before You Visit</h2>
+          <p className={prose.p}>
+            Three things worth checking when you go through the drawings with us:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {readingThePlan.map((item) => (
+              <div key={item.name} className={prose.card}>
+                <h3 className={prose.h3}>{item.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* H2 - Selection Guide Table */}
-        <div className="mt-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-6">
-            Choose the Right Peridona Residence for You
-          </h2>
-
-          <div className="overflow-x-auto shadow-md rounded-lg">
-            <table className="w-full text-sm md:text-base border-collapse">
-              <thead>
-                <tr className="bg-gray-800 text-white">
-                  <th className="px-4 py-3 text-left">If You Are...</th>
-                  <th className="px-4 py-3 text-left">Recommended Residence</th>
-                  <th className="px-4 py-3 text-left">Why</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { buyer: "Moving up to full-floor luxury living", residence: "4 BHK (4,900 sq ft*)", why: "The entry point into the One Floor One Apartment* concept with 2-side views" },
-                  { buyer: "A larger or multi-generational family", residence: "5 BHK (5,600 sq ft*)", why: "An extra bedroom suite with the same private-lobby, full-floor format" },
-                  { buyer: "Seeking maximum space in a 4 BHK", residence: "4 BHK Grande (6,700 sq ft*)", why: "The most expansive 4 BHK floor plate in the collection" },
-                  { buyer: "After the crowning address", residence: "Penthouse", why: "Top-of-tower residences beside the 75,500 sq ft rooftop amenities" },
-                ].map((item, idx) => (
-                  <tr
-                    key={idx}
-                    className={`${
-                      idx % 2 === 0 ? "bg-white" : "bg-gray-50"
-                    } hover:bg-gray-100 transition`}
-                  >
-                    <td className="px-4 py-3 font-medium">{item.buyer}</td>
-                    <td className="px-4 py-3 font-semibold text-[#DCA54A]">{item.residence}</td>
-                    <td className="px-4 py-3 text-sm">{item.why}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* H2 - Brochure Section */}
-        <div className="mt-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-4">
-            CRC The Peridona Project Brochure
-          </h2>
-          <p className="text-gray-600 text-center max-w-3xl mx-auto text-sm mb-6">
-            Alongside the individual residence layouts, the CRC The Peridona brochure
-            presents the full picture of the development — 7 towers of 43 floors rising
-            ~160 m*, a 330 m* long front facade, the 1.8 lakh sq ft Club across 3
-            levels, and the 75,500 sq ft rooftop. It also maps the setting: the
-            130-acre Greg Norman-designed championship golf course to the north, the
-            60-acre nature park to the south, and the practice range and township
-            clubhouse on either side.
+        {/* Brochure preview */}
+        <div>
+          <h2 className={prose.h2}>The Full Plan Set &amp; Brochure</h2>
+          <p className={`${prose.p} mb-6`}>
+            Detailed unit plans, the master plan, tower layouts and the brochure are available on
+            request. Unlock once and view everything here.
           </p>
-
-          <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto text-sm mb-6">
-            <ul className="space-y-1 list-disc list-inside text-gray-600">
-              <li>18-Hole Greg Norman Design Championship Golf Course</li>
-              <li>The Club — 1.8 lakh sq ft across 3 levels</li>
-              <li>The Rooftop — 75,500 sq ft, 300 m lengthwise</li>
-            </ul>
-            <ul className="space-y-1 list-disc list-inside text-gray-600">
-              <li>60-acre nature park and 10-acre practice range</li>
-              <li>2-side views for every residence (golf course + nature park)</li>
-              <li>24x7 multi-tier security with video door phone</li>
-            </ul>
-          </div>
-
           <div
             className="relative w-full rounded-lg overflow-hidden shadow-lg cursor-pointer group max-w-4xl mx-auto"
             onClick={() => {
@@ -319,40 +297,15 @@ export default function FloorPlanSection() {
                 {isUnlocked ? "View Brochure" : "Unlock Now"}
               </button>
             </div>
-            <span className="absolute top-3 left-3 bg-[#DCA54A] text-white text-[10px] px-2 py-1 rounded">
-              Premium
-            </span>
-          </div>
-          <div className="text-center mt-4">
-            <button
-              onClick={() => {
-                if (!isUnlocked) openModal();
-                else setIsMasterOpen(true);
-              }}
-              className="bg-[#DCA54A] text-white text-xs px-6 py-2 rounded uppercase hover:bg-[#c9943a] transition"
-            >
-              View Brochure PDF
-            </button>
           </div>
         </div>
 
-        {/* H2 - PDF Download Section */}
-        <div className="mt-8 bg-gray-50 rounded-lg p-6 md:p-8 text-center border border-gray-200">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            CRC The Peridona Floor Plan PDF — Download
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm mb-6">
-            The official CRC The Peridona brochure includes the residence
-            configurations — the 4,900 sq ft* 4 BHK, 5,600 sq ft* 5 BHK, 6,700 sq ft*
-            4 BHK and Penthouses — along with The Club, The Rooftop, specifications
-            and the global design team. It is shared directly with verified buyers to
-            maintain accurate, RERA-aligned distribution.
-          </p>
-          <p className="text-sm text-gray-600 max-w-2xl mx-auto mb-6">
-            To download the CRC The Peridona brochure, share your name, phone and
-            preferred residence configuration via the enquiry form below. Our channel
-            partner team will email the latest PDF along with current pricing details
-            within a few hours.
+        {/* Email me the brochure */}
+        <div className="bg-[#FAF8F4] rounded-lg p-6 md:p-8 text-center border border-[#e5dcc5]">
+          <h2 className={prose.h2}>Get the Plans by Email</h2>
+          <p className={`${prose.p} max-w-2xl mx-auto`}>
+            Share your name, phone and preferred residence configuration and our team will email the
+            full plan set, master plan and brochure along with current pricing.
           </p>
 
           <div className="max-w-md mx-auto">
@@ -360,25 +313,25 @@ export default function FloorPlanSection() {
               <input
                 type="text"
                 placeholder="Your Name"
-                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A]"
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A] bg-white"
                 aria-label="Your Name"
               />
               <input
                 type="tel"
                 placeholder="Phone Number"
-                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A]"
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A] bg-white"
                 aria-label="Phone Number"
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A]"
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A] bg-white"
                 aria-label="Email Address"
               />
               <select
                 value={selectedResidence}
                 onChange={(e) => setSelectedResidence(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A]"
+                className="px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-[#DCA54A] bg-white"
                 aria-label="Preferred Residence Configuration"
               >
                 <option value="">Preferred Residence Configuration</option>
@@ -391,34 +344,58 @@ export default function FloorPlanSection() {
                 onClick={() => openModal()}
                 className="bg-[#DCA54A] text-white font-semibold px-6 py-3 rounded uppercase hover:bg-[#c9943a] transition"
               >
-                Email Me the Brochure
+                Email Me the Plans
               </button>
             </div>
           </div>
         </div>
 
-        {/* H2 - Price Info */}
-        <div className="text-center text-sm text-gray-500 mt-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            CRC The Peridona Floor Plan Price
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            The tentative price at CRC The Peridona is <strong>₹12.5 Cr* onwards</strong>,
-            with typologies of 4 BHK, 4.5 BHK and 5.5 BHK starting from 4,950 sq ft.
-            Exact unit pricing depends on typology, floor and orientation, and is
-            shared on a one-to-one basis so you receive the most current offer for the
-            residence you shortlist.
-          </p>
-          <p className="mt-3">
-            For the latest pricing on any CRC The Peridona residence, visit the{" "}
-            <a href="/price" className="text-[#DCA54A] hover:underline">
+        {/* Project Details */}
+        <ProjectSnapshot
+          rows={[
+            ["Location", "C1, Jaypee Greens, Greater Noida 201310, Uttar Pradesh"],
+            ["Configuration", "4, 4.5 & 5.5 BHK from 4,950 sq ft"],
+            ["Towers", "7"],
+            ["Floors", "43"],
+            ["Residences", "341"],
+            ["Site", "6.80 acres"],
+            ["Tentative price", "₹12.5 Cr* onwards"],
+            [
+              "UP RERA No.",
+              <>
+                UPRERAPRJ298067/05/2025 ·{" "}
+                <a
+                  href="https://www.up-rera.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#c8922a] hover:underline"
+                >
+                  up-rera.in
+                </a>
+              </>,
+            ],
+          ]}
+        />
+
+        {/* Get the Plans */}
+        <div>
+          <h2 className={prose.h2}>Get the Plans</h2>
+          <p className={prose.p}>
+            Detailed unit plans, the master plan, tower layouts and the brochure are available on
+            request. Our team can also arrange a site visit so you can see the actual outlook from
+            an available floor. For pricing, see the{" "}
+            <Link href="/price" className={prose.link}>
               Price page
-            </a>{" "}
-            or request a callback through the{" "}
-            <a href="/contact-us" className="text-[#DCA54A] hover:underline">
-              Contact form
-            </a>.
+            </Link>
+            .
           </p>
+          <CtaRow
+            items={[
+              { label: "Unlock Floor Plans", brochure: true },
+              { label: "Download Brochure", brochure: true },
+              { label: "Book a Site Visit", href: "/contact-us" },
+            ]}
+          />
         </div>
       </div>
 
@@ -510,7 +487,7 @@ export default function FloorPlanSection() {
                 }}
                 className="bg-gray-200 text-gray-700 text-sm px-6 py-3 rounded uppercase hover:bg-gray-300 transition"
               >
-                Request a Private Preview
+                Book a Site Visit
               </button>
             </div>
           </div>
