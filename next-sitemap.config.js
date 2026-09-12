@@ -1,7 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 
 module.exports = {
-  siteUrl: "https://www.crcperidona.in",
+  siteUrl: "https://thecrcperidona.com",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
 

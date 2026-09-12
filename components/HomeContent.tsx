@@ -5,29 +5,29 @@ import { prose } from "@/utils/prose";
 
 const residenceTypes = [
   {
-    name: "Four-bedroom residences",
-    text: "Starting past 4,000 sq ft of floor plate, carpet areas from roughly 3,930 sq ft upward. Whole-floor living.",
+    name: "4 BHK residences",
+    text: "The entry format, from 4,950 sq ft. A whole floor to yourself, with the private lift lobby opening straight into the home. RERA-filed 4 BHK areas run from 3,450 to 6,555 sq ft across the towers.",
   },
   {
-    name: "Five-bedroom residences",
-    text: "Larger configurations for families who need genuine separation between generations, staff and guests.",
+    name: "4.5 BHK residences",
+    text: "The four-bedroom plan plus a flexible half room — study, home office, lounge or staff suite — for families who want that extra measure of adaptability without stepping up to the largest homes.",
   },
   {
-    name: "Duplexes",
-    text: "Around 10,000 sq ft across two connected levels — the format for people who want a house that happens to be in the sky.",
+    name: "5.5 BHK residences",
+    text: "The largest standard typology, built for multi-generational living with genuine separation between private, formal and service zones. RERA-filed 5 BHK areas reach 9,756 sq ft.",
   },
   {
-    name: "Villas",
-    text: "Two only. Approximately 15,000 sq ft each. These will not come up twice.",
+    name: "Penthouses",
+    text: "Top-of-tower residences beneath the 75,500 sq ft rooftop, with the fullest expression of the two-side outlook. Layouts and areas are shared on request.",
   },
 ];
 
 const clubhouseItems = [
-  "An 18-hole night golf facility",
-  "Nature trails threading the site",
-  "Water bodies and reflective landscaping",
-  "Wellness, fitness and recovery spaces",
-  "Several experiential amenities appearing in India for the first time",
+  "Three theme swimming pools and waterbodies",
+  "An ice rink and an indoor flow ride",
+  "Two grand cinema theatres, The Jazz Club and a karaoke club",
+  "Grand dining, a ballroom, a private dining restaurant, The Library and Tea Lounge",
+  "A world-class gymnasium, bowling alley and a private observatory above the city",
 ];
 
 export default function HomeContent() {
@@ -41,11 +41,11 @@ export default function HomeContent() {
           built around that distinction.
         </p>
         <p className={prose.p}>
-          Seven towers. Forty-two floors each. And exactly one home on every single floor.
+          Seven towers. Forty-three floors each. And exactly one home on every single floor.
         </p>
         <p className={prose.p}>
           That constraint shapes everything else about the project. Your floor is yours. Light enters
-          from four sides. There is no common corridor, no neighbour sharing your landing, no
+          from both sides. There is no common corridor, no neighbour sharing your landing, no
           negotiation over the lift. In a market where luxury usually means better fittings in the
           same old floor plate, this is a structural decision, not a cosmetic one.
         </p>
@@ -53,23 +53,26 @@ export default function HomeContent() {
         {/* The Setting */}
         <h2 className={`${prose.h2} mt-12`}>The Setting</h2>
         <p className={prose.p}>
-          The project occupies seven acres <strong>inside</strong> Jaypee Greens Golf Course — not
-          adjacent to it, not overlooking it from across a road. Direct course access comes with the
-          address.
+          The project occupies 6.80 acres <strong>inside</strong> the 452-acre Jaypee Greens golf
+          township — not adjacent to it, not overlooking it from across a road. The 130-acre,
+          18-hole Greg Norman Design championship course sits on one side of the towers and the
+          60-acre nature park on the other, so every residence looks out on both.
         </p>
         <p className={prose.p}>
-          Around the towers sit landscaped grounds and a dedicated nature park, which is where the
-          remaining million square feet of the 3.1 million sq ft development goes. Roughly 2.1
-          million sq ft is saleable. The rest stays open.
+          The township itself carries only around 3,600 homes across its 452 acres, with a green
+          cover that has had twenty-five years to mature. The Peridona adds 3.1 million sq ft of
+          built-up area to that setting, and the vast majority of its own site stays as landscape,
+          water bodies and open ground.
         </p>
         <p className={`${prose.p} font-semibold text-gray-900`}>Getting anywhere:</p>
         <SimpleTable
-          headers={["Destination", "Approx. drive"]}
+          headers={["Destination", "Approx. distance"]}
           rows={[
-            ["Noida International Airport, Jewar", "20 minutes"],
-            ["Yamuna Expressway", "Immediate access"],
-            ["Greater Noida Expressway", "Short drive"],
-            ["Pari Chowk", "Nearby"],
+            ["Pari Chowk", "2 km"],
+            ["Yamuna Expressway", "Direct access"],
+            ["Noida–Greater Noida Expressway", "Connected"],
+            ["Noida International Airport, Jewar", "35 km"],
+            ["IGI Airport, Delhi", "55 km"],
           ]}
           className="mb-6"
         />
@@ -81,7 +84,10 @@ export default function HomeContent() {
 
         {/* Residence Types */}
         <h2 className={`${prose.h2} mt-12`}>Residence Types</h2>
-        <p className={prose.p}>Only 341 homes exist here, across four distinct formats.</p>
+        <p className={prose.p}>
+          Only 341 homes exist here, across three typologies plus penthouses — all starting from
+          4,950 sq ft.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           {residenceTypes.map((r) => (
             <div key={r.name} className={prose.card}>
@@ -91,8 +97,8 @@ export default function HomeContent() {
           ))}
         </div>
         <p className={prose.p}>
-          Upper-end carpet areas reach close to 11,860 sq ft. Full unit plans, tower orientation and
-          the master plan are shared on request.
+          Full unit plans, tower orientation and the master plan are shared on request. Areas are
+          indicative and subject to the approved building plan.
         </p>
 
         {/* Who Built This */}
@@ -115,7 +121,10 @@ export default function HomeContent() {
 
         {/* Inside the Clubhouse */}
         <h2 className={`${prose.h2} mt-12`}>Inside the Clubhouse</h2>
-        <p className={prose.p}>Over one lakh square feet of it. Within and around it:</p>
+        <p className={prose.p}>
+          The Club runs to 1.8 lakh square feet across three levels, with interiors by Rockwell
+          Group. Within it:
+        </p>
         <ul className={prose.ul}>
           {clubhouseItems.map((item) => (
             <li key={item} className={prose.li}>
@@ -125,6 +134,12 @@ export default function HomeContent() {
           ))}
         </ul>
         <p className={prose.p}>
+          Above the towers sits The Rooftop — a 75,500 sq ft skydeck running 300 metres lengthwise,
+          with theme waterbodies, a bar and lounge, a jogging track, a yoga deck and padel court, and
+          two observatories. Beyond the gate is the township’s 18-hole Greg Norman championship
+          course.
+        </p>
+        <p className={prose.p}>
           CRC frames the brief in two words — <em>Live More</em> — and the amenity programme is sized
           to back that up rather than decorate a brochure.
         </p>
@@ -132,8 +147,9 @@ export default function HomeContent() {
         {/* What It Costs */}
         <h2 className={`${prose.h2} mt-12`}>What It Costs</h2>
         <p className={prose.p}>
-          Residences sit broadly in the <strong>₹12 crore to ₹36 crore</strong> range, moving with
-          configuration, floor and orientation.
+          Residences start at a tentative <strong>₹12.5 crore*</strong>, moving up with
+          configuration, floor and orientation. The larger typologies and penthouses are priced on
+          request.
         </p>
         <p className={prose.p}>
           CRC is selling this inventory largely by invitation. Exact per-square-foot rates, the
@@ -145,32 +161,33 @@ export default function HomeContent() {
         {/* Timeline and Registration */}
         <h2 className={`${prose.h2} mt-12`}>Timeline and Registration</h2>
         <p className={prose.p}>
-          Construction is active on site. <strong>Possession is scheduled for February 2030.</strong>
+          Construction is active on site. <strong>Possession is scheduled for February 2030</strong>,
+          as declared to UP RERA.
         </p>
         <p className={prose.p}>
-          The land is held through a tie-up with Jaiprakash Associates Ltd, the original developer of
-          the Jaypee Greens township.
+          The land is held through a partnership with Jaiprakash Associates Ltd, the original
+          developer of the Jaypee Greens township.
         </p>
         <p className={prose.p}>
           <strong>UP RERA Registration No.:</strong> {RERA_NO} · <ReraLink />
         </p>
         <p className={prose.p}>
-          Quarterly construction updates are posted here so you can watch progress without calling
-          anyone.
+          Construction updates are posted here so you can watch progress without calling anyone.
         </p>
 
         {/* The Developer */}
         <h2 className={`${prose.h2} mt-12`}>The Developer</h2>
         <p className={prose.p}>
-          CRC Group operates out of Noida and has completed around 1,400 homes across two residential
-          projects, with another residential development in Greater Noida and a 2.2 million sq ft
-          commercial asset in Noida currently building out. Kunal Bhalla founded the group and leads
-          it as CEO.
+          CRC Group was founded in 2006 and operates out of Noida. It has delivered CRC Sublimis and
+          CRC Joyous in Noida Extension, with CRC Maesta under construction there and CRC The
+          Flagship, a roughly 2.4 million sq ft commercial campus on the Noida Expressway, building
+          out. Kunal Bhalla is Founder and CEO; Satish Garg is Founder and Managing Director.
         </p>
         <p className={prose.p}>
-          The Peridona is CRC’s first ultra-premium project. That cuts both ways honestly: the
-          ambition and consultant roster are genuine, and it is also a step up in segment for the
-          developer. Worth weighing alongside everything else.
+          The Peridona is CRC’s first ultra-premium project, with a development outlay of ₹1,500
+          crore excluding land. That cuts both ways honestly: the ambition and consultant roster are
+          genuine, and it is also a step up in segment for the developer. Worth weighing alongside
+          everything else.
         </p>
 
         {/* Should You Buy Here? */}
@@ -189,7 +206,7 @@ export default function HomeContent() {
           <div className={prose.card}>
             <h3 className={prose.h3}>To consider</h3>
             <p className="text-gray-600 text-sm leading-relaxed">
-              Possession is 2030, so this is a four-year horizon, not a move-in. The Jewar airport
+              Possession is 2030, so this is a multi-year horizon, not a move-in. The Jewar airport
               thesis is widely held, which means some of it is already priced in. And the
               ultra-luxury resale market in Greater Noida is thinner than Gurgaon’s, so exit
               liquidity deserves thought.

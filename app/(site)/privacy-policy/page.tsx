@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy & Disclaimer | CRC The Peridona",
   description:
     "Privacy policy and disclaimer for the CRC The Peridona marketing website. Read terms of use and information disclaimer.",
-  alternates: { canonical: "https://www.crcperidona.in/privacy-policy" },
+  alternates: { canonical: "https://thecrcperidona.com/privacy-policy" },
 };
 
 export default function PrivacyPolicyPage() {

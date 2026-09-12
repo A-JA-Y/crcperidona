@@ -56,7 +56,7 @@ const NewsData: NewsMeta[] = [
       "circle rate 2026",
     ],
     canonical:
-      "https://www.crcperidona.in/news/greater-noida-circle-rate-hike-crc-the-peridona-2026",
+      "https://thecrcperidona.com/news/greater-noida-circle-rate-hike-crc-the-peridona-2026",
 
     /* Display */
     image: "/news-1.webp",
@@ -90,7 +90,7 @@ const NewsData: NewsMeta[] = [
         "Greater Noida Circle Rates Hiked for First Time in 9 Years — What It Means for Luxury Buyers at CRC The Peridona",
       description:
         "Greater Noida Authority approved a 3.58% circle rate hike after 9 years. What the revision means for stamp duty, valuations and buyer sentiment at CRC The Peridona, Jaypee Greens.",
-      image: ["https://www.crcperidona.in/news-1.webp"],
+      image: ["https://thecrcperidona.com/news-1.webp"],
       datePublished: "2026-05-06",
       dateModified: "2026-05-06",
       author: {
@@ -102,13 +102,13 @@ const NewsData: NewsMeta[] = [
         name: "CRC The Peridona",
         logo: {
           "@type": "ImageObject",
-          url: "https://www.crcperidona.in/homeHero.webp",
+          url: "https://thecrcperidona.com/homeHero.webp",
         },
       },
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id":
-          "https://www.crcperidona.in/news/greater-noida-circle-rate-hike-crc-the-peridona-2026",
+          "https://thecrcperidona.com/news/greater-noida-circle-rate-hike-crc-the-peridona-2026",
       },
       articleSection: "Real Estate",
       keywords:

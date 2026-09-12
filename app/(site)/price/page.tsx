@@ -10,10 +10,10 @@ import { RERA_NO, ReraLink } from "@/components/ProjectSnapshot";
 import { prose } from "@/utils/prose";
 
 export const metadata: Metadata = {
-  title: "CRC The Peridona Price List 2026 | 4 & 5 BHK, Duplex, Villa Costs",
+  title: "CRC The Peridona Price List 2026 | 4, 4.5 & 5.5 BHK and Penthouse Costs",
   description:
-    "Current pricing for CRC The Peridona, Jaypee Greens Greater Noida. Indicative ranges by configuration, payment plan structure, booking amount and what's included.",
-  alternates: { canonical: "https://www.crcperidona.in/price" },
+    "Current pricing for CRC The Peridona, Jaypee Greens Greater Noida. Tentative ₹12.5 Cr* onwards by configuration, payment plan structure, booking amount and what's included.",
+  alternates: { canonical: "https://thecrcperidona.com/price" },
   keywords:
     "CRC The Peridona price, CRC The Peridona price list 2026, CRC The Peridona Greater Noida, CRC Peridona Jaypee Greens, luxury apartments Jaypee Greens price, CRC Group",
 };
@@ -21,11 +21,11 @@ export const metadata: Metadata = {
 const priceDrivers = [
   {
     name: "Configuration.",
-    text: "The jump from a 4 BHK to a duplex or villa is a jump in format, not just area. Per-square-foot rates differ across formats.",
+    text: "The jump from a 4 BHK to a 5.5 BHK or a penthouse is a jump in format, not just area. Per-square-foot rates differ across formats.",
   },
   {
     name: "Floor level.",
-    text: "Towers rise to roughly 42 storeys. Higher floors command a premium, and the gradient across forty-plus floors is meaningful.",
+    text: "Towers rise to 43 storeys. Higher floors command a premium, and the gradient across forty-plus floors is meaningful.",
   },
   {
     name: "Tower and orientation.",
@@ -67,7 +67,7 @@ export default function PricePage() {
       <PageBanner
         eyebrow="Investment"
         title="Price List"
-        subtitle="CRC The Peridona pricing at Jaypee Greens, Greater Noida — indicative ranges by configuration, payment plans, and what sits beyond the base price."
+        subtitle="CRC The Peridona pricing at Jaypee Greens, Greater Noida — tentative ₹12.5 Cr* onwards, payment plans, and what sits beyond the base price."
       />
       <ModalWrapper />
 
@@ -75,33 +75,35 @@ export default function PricePage() {
         <div className={prose.inner}>
           <h1 className={prose.h1}>CRC The Peridona Price List 2026</h1>
           <p className={prose.lead}>
-            Residences at The Peridona are positioned between roughly{" "}
-            <strong>₹12 crore and ₹36 crore</strong>, depending on configuration, tower, floor level
-            and orientation.
+            Residences at The Peridona start at a tentative <strong>₹12.5 crore*</strong> and rise
+            with configuration, tower, floor level and orientation.
           </p>
           <p className={prose.p}>
-            Below is how that range breaks down, what drives the variation, and what you should
+            Below is how that pricing breaks down, what drives the variation, and what you should
             expect on top of the base figure. Where we can’t publish an exact number, we say so
             rather than dressing up a placeholder.
           </p>
 
           {/* Indicative Ranges by Configuration */}
-          <h2 className={`${prose.h2} mt-12`}>Indicative Ranges by Configuration</h2>
+          <h2 className={`${prose.h2} mt-12`}>Indicative Pricing by Configuration</h2>
           <SimpleTable
-            headers={["Configuration", "Approx. size", "Indicative range"]}
+            headers={["Configuration", "Approx. size", "Tentative price"]}
             rows={[
-              ["4 BHK residence", "From ~3,930 sq ft carpet", "On request"],
-              ["5 BHK residence", "Up to ~11,860 sq ft carpet", "On request"],
-              ["Duplex", "~10,000 sq ft", "On request"],
-              ["Villa", "~15,000 sq ft", "On request"],
+              ["4 BHK residence", "From 4,950 sq ft", "₹12.5 Cr* onwards"],
+              ["4.5 BHK residence", "On request", "On request"],
+              ["5.5 BHK residence", "RERA-filed 5 BHK band up to 9,756 sq ft", "On request"],
+              ["Penthouse", "On request", "On request"],
             ]}
-            className="mb-6"
+            className="mb-4"
           />
+          <p className={`${prose.note} mb-4`}>
+            *Indicative; subject to the approved building plan. Prices are tentative and exclude
+            registration, stamp duty, GST and other statutory charges.
+          </p>
           <p className={prose.p}>
-            The overall band across all formats runs ₹12 Cr to ₹36.2 Cr. We share
-            configuration-specific figures and the live per-square-foot rate directly, because CRC
-            revises pricing across construction stages and a number published here would be stale
-            within a quarter.
+            We share configuration-specific figures and the live per-square-foot rate directly,
+            because CRC revises pricing across construction stages and a number published here would
+            be stale within a quarter.
           </p>
           <CtaRow items={[{ label: "Request the Current Price List →", brochure: true }]} />
 
@@ -183,7 +185,7 @@ export default function PricePage() {
           <p className={prose.p}>
             Delhi-NCR recorded around 3,960 luxury home sales at ₹6 crore and above in the first
             half of 2025 — roughly three times the previous year’s figure. The segment has depth.
-            What The Peridona offers within it is scarcity: 341 homes on seven acres inside an
+            What The Peridona offers within it is scarcity: 341 homes on 6.80 acres inside an
             established golf estate, with land that cannot be extended.
           </p>
           <p className={prose.p}>

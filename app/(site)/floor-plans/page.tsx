@@ -13,14 +13,14 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: {
-    canonical: "https://www.crcperidona.in/floor-plans",
+    canonical: "https://thecrcperidona.com/floor-plans",
   },
   keywords:
     "CRC The Peridona floor plan, CRC The Peridona Greater Noida, CRC Peridona Jaypee Greens, luxury apartments Jaypee Greens, 4 BHK floor plan Greater Noida, penthouse Jaypee Greens",
   openGraph: {
     title,
     description,
-    url: "https://www.crcperidona.in/floor-plans",
+    url: "https://thecrcperidona.com/floor-plans",
     type: "website",
   },
 };

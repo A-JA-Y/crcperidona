@@ -14,7 +14,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "https://www.crcperidona.in/location-connectivity" },
+  alternates: { canonical: "https://thecrcperidona.com/location-connectivity" },
 };
 
 const townshipItems = [
@@ -289,7 +289,7 @@ export default function LocationConnectivityPage() {
             "@graph": [
               {
                 "@type": "FAQPage",
-                "@id": "https://www.crcperidona.in/location-connectivity#faq",
+                "@id": "https://thecrcperidona.com/location-connectivity#faq",
                 mainEntity: faqData.map((item) => ({
                   "@type": "Question",
                   name: item.question,
@@ -301,48 +301,48 @@ export default function LocationConnectivityPage() {
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://www.crcperidona.in/location-connectivity#breadcrumb",
+                "@id": "https://thecrcperidona.com/location-connectivity#breadcrumb",
                 itemListElement: [
                   {
                     "@type": "ListItem",
                     position: 1,
                     name: "Home",
-                    item: "https://www.crcperidona.in/",
+                    item: "https://thecrcperidona.com/",
                   },
                   {
                     "@type": "ListItem",
                     position: 2,
                     name: "Location & Connectivity",
-                    item: "https://www.crcperidona.in/location-connectivity",
+                    item: "https://thecrcperidona.com/location-connectivity",
                   },
                 ],
               },
               {
                 "@type": "WebPage",
-                "@id": "https://www.crcperidona.in/location-connectivity#webpage",
-                url: "https://www.crcperidona.in/location-connectivity",
+                "@id": "https://thecrcperidona.com/location-connectivity#webpage",
+                url: "https://thecrcperidona.com/location-connectivity",
                 name: title,
                 description,
                 breadcrumb: {
-                  "@id": "https://www.crcperidona.in/location-connectivity#breadcrumb",
+                  "@id": "https://thecrcperidona.com/location-connectivity#breadcrumb",
                 },
                 about: {
-                  "@id": "https://www.crcperidona.in/#residence",
+                  "@id": "https://thecrcperidona.com/#residence",
                 },
                 mainEntity: {
-                  "@id": "https://www.crcperidona.in/location-connectivity#faq",
+                  "@id": "https://thecrcperidona.com/location-connectivity#faq",
                 },
-                primaryImageOfPage: "https://www.crcperidona.in/homeHero.webp",
+                primaryImageOfPage: "https://thecrcperidona.com/homeHero.webp",
                 inLanguage: "en-IN",
               },
               {
                 "@type": "ApartmentComplex",
-                "@id": "https://www.crcperidona.in/#residence",
+                "@id": "https://thecrcperidona.com/#residence",
                 name: "CRC The Peridona",
                 description:
                   "Ultra-luxury 4, 4.5 & 5.5 BHK residences with golf course and nature park views at Jaypee Greens, Greater Noida by CRC Group.",
-                url: "https://www.crcperidona.in/",
-                image: "https://www.crcperidona.in/homeHero.webp",
+                url: "https://thecrcperidona.com/",
+                image: "https://thecrcperidona.com/homeHero.webp",
                 address: {
                   "@type": "PostalAddress",
                   streetAddress: "C1, Jaypee Greens",
@@ -358,11 +358,11 @@ export default function LocationConnectivityPage() {
               },
               {
                 "@type": "RealEstateAgent",
-                "@id": "https://www.crcperidona.in/#organization",
+                "@id": "https://thecrcperidona.com/#organization",
                 name: "CRC The Peridona - Authorised Channel Partner",
-                url: "https://www.crcperidona.in/",
-                logo: "https://www.crcperidona.in/homeHero.webp",
-                image: "https://www.crcperidona.in/homeHero.webp",
+                url: "https://thecrcperidona.com/",
+                logo: "https://thecrcperidona.com/homeHero.webp",
+                image: "https://thecrcperidona.com/homeHero.webp",
                 telephone: "+91-7304216059",
                 address: {
                   "@type": "PostalAddress",

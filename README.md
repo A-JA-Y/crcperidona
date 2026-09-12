@@ -1,6 +1,6 @@
 # CRC The Peridona — Marketing Microsite
 
-A [Next.js](https://nextjs.org) (App Router, Tailwind CSS v4) lead-generation microsite for **CRC The Peridona**, an ultra-luxury residential project by **CRC Group** at Jaypee Greens, Greater Noida. Published by an authorised channel partner at [https://www.crcperidona.in](https://www.crcperidona.in).
+A [Next.js](https://nextjs.org) (App Router, Tailwind CSS v4) lead-generation microsite for **CRC The Peridona**, an ultra-luxury residential project by **CRC Group** at Jaypee Greens, Greater Noida. Published by an authorised channel partner at [https://thecrcperidona.com](https://thecrcperidona.com).
 
 ## About the Project
 

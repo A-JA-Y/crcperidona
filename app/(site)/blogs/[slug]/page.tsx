@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: { params: Params }) {
 
   const title = blog.metaTitle || blog.title;
   const description = blog.metaDescription || blog.excerpt;
-  const url = `https://www.crcperidona.in/blogs/${slug}`;
+  const url = `https://thecrcperidona.com/blogs/${slug}`;
   const imageUrl = typeof blog.image === "string" ? blog.image : "";
 
   return {
@@ -118,7 +118,7 @@ export default async function BlogDetail({ params }: { params: Params }) {
   const BlogContent = await getBlogContent(slug);
   if (!BlogContent) return notFound();
 
-  const pageUrl = `https://www.crcperidona.in/blogs/${slug}`;
+  const pageUrl = `https://thecrcperidona.com/blogs/${slug}`;
   const imageUrl = typeof blog.image === "string" ? blog.image : "";
 
   /* ── Breadcrumb Schema ── */
@@ -130,13 +130,13 @@ export default async function BlogDetail({ params }: { params: Params }) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://www.crcperidona.in/",
+        item: "https://thecrcperidona.com/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://www.crcperidona.in/blogs",
+        item: "https://thecrcperidona.com/blogs",
       },
       {
         "@type": "ListItem",
@@ -164,7 +164,7 @@ export default async function BlogDetail({ params }: { params: Params }) {
       name: "CRC The Peridona",
       logo: {
         "@type": "ImageObject",
-        url: "https://www.crcperidona.in/homeHero.webp",
+        url: "https://thecrcperidona.com/homeHero.webp",
       },
     },
     mainEntityOfPage: {

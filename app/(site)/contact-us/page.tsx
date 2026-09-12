@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Contact Us | CRC The Peridona, Jaypee Greens Greater Noida",
   description:
     "Enquire about CRC The Peridona at Jaypee Greens, Greater Noida. Request the price list, floor plans or brochure, or book a site visit. Call +91 7304216059.",
-  alternates: { canonical: "https://www.crcperidona.in/contact-us" },
+  alternates: { canonical: "https://thecrcperidona.com/contact-us" },
 };
 
 const whatWeSend = [

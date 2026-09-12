@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   title: "About CRC Group | Developer of CRC The Peridona, Greater Noida",
   description:
     "CRC Group, the Noida-based developer behind CRC The Peridona at Jaypee Greens. Track record, leadership, delivered projects and the move into ultra-luxury housing.",
-  alternates: { canonical: "https://www.crcperidona.in/about-crc-group" },
+  alternates: { canonical: "https://thecrcperidona.com/about-crc-group" },
 };
 
 type DesignTeamMember = {
@@ -160,22 +160,23 @@ export default function AboutCrcGroupPage() {
             <h2 className={`${prose.h2} mt-10`}>Who They Are</h2>
             <p className={prose.p}>
               CRC Group is a Noida-based real estate developer operating across the National Capital
-              Region. The group has built its position in the mid and premium residential segment
-              over the past decade, with a parallel presence in commercial development.
+              Region. Founded in 2006, the group has built its position in the mid and premium
+              residential segment, with a parallel presence in commercial development.
             </p>
             <ul className={prose.ul}>
               <li className={prose.li}>
                 <span className={prose.tick}>✓</span>
                 <span>
-                  <strong>Delivered:</strong> Approximately 1,400 homes across two completed
-                  residential projects.
+                  <strong>Delivered:</strong> CRC Sublimis and CRC Joyous, residential projects in
+                  Noida Extension (Greater Noida West).
                 </span>
               </li>
               <li className={prose.li}>
                 <span className={prose.tick}>✓</span>
                 <span>
-                  <strong>Under construction:</strong> A further residential development in Greater
-                  Noida, and a commercial project in Noida of roughly 2.2 million sq ft.
+                  <strong>Under construction:</strong> CRC Maesta, a residential development in
+                  Noida Extension, and CRC The Flagship, a commercial campus of roughly 2.4 million
+                  sq ft in Sector 140A on the Noida Expressway.
                 </span>
               </li>
               <li className={prose.li}>
@@ -194,14 +195,21 @@ export default function AboutCrcGroupPage() {
       <section className={`${prose.section} bg-[#FAF8F4]`}>
         <div className={prose.inner}>
           <h2 className={prose.h2}>Leadership</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className={prose.cardWhite}>
               <h3 className={prose.h3}>Kunal Bhalla — Founder &amp; CEO</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Bhalla founded CRC Group and has directed its growth from mid-market housing into
-                the premium and now ultra-premium segment. The Peridona was unveiled under his
+                Bhalla co-founded CRC Group and has directed its growth from mid-market housing
+                into the premium and now ultra-premium segment. The Peridona was unveiled under his
                 leadership at a launch event in Dubai in July 2025 — a deliberate signal about the
                 buyer profile the group is addressing.
+              </p>
+            </div>
+            <div className={prose.cardWhite}>
+              <h3 className={prose.h3}>Satish Garg — Founder &amp; Managing Director</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Garg co-founded the group in 2006 and heads it as Managing Director, overseeing the
+                delivery record that CRC Sublimis and CRC Joyous were built on.
               </p>
             </div>
             <div className={prose.cardWhite}>
@@ -316,11 +324,13 @@ export default function AboutCrcGroupPage() {
           <SimpleTable
             rows={[
               ["Base", "Noida, Uttar Pradesh"],
-              ["Homes delivered", "~1,400 across 2 residential projects"],
-              ["Under construction", "1 residential (Greater Noida) + 2.2 mn sq ft commercial (Noida)"],
+              ["Founded", "2006"],
+              ["Delivered", "CRC Sublimis, CRC Joyous (Noida Extension)"],
+              ["Under construction", "CRC Maesta (residential) + CRC The Flagship, ~2.4 mn sq ft commercial (Noida)"],
               ["Segment history", "Mid and premium residential"],
               ["Current flagship", "CRC The Peridona, Jaypee Greens"],
               ["Founder & CEO", "Kunal Bhalla"],
+              ["Founder & MD", "Satish Garg"],
             ]}
             className="mb-12"
           />

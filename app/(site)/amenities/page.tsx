@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "CRC The Peridona Amenities | 1.8 Lakh Sq Ft Club & Rooftop Skydeck",
   description:
     "Inside the amenities at CRC The Peridona, Jaypee Greens — a 1.8 lakh sq ft Rockwell Group clubhouse, a 75,500 sq ft rooftop skydeck, ice rink, theatres and observatories.",
-  alternates: { canonical: "https://www.crcperidona.in/amenities" },
+  alternates: { canonical: "https://thecrcperidona.com/amenities" },
 };
 
 const clubGroups = [
@@ -98,12 +98,12 @@ export default function AmenitiesPage() {
             "@context": "https://schema.org/",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.crcperidona.in/" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://thecrcperidona.com/" },
               {
                 "@type": "ListItem",
                 position: 2,
                 name: "Amenities",
-                item: "https://www.crcperidona.in/amenities",
+                item: "https://thecrcperidona.com/amenities",
               },
             ],
           }),
@@ -133,12 +133,12 @@ export default function AmenitiesPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateAgent",
-            "@id": "https://www.crcperidona.in/#realestateagent",
+            "@id": "https://thecrcperidona.com/#realestateagent",
             name: "CRC The Peridona - Authorised Channel Partner",
             description:
               "Authorised channel partner for CRC The Peridona, an ultra-luxury residential project by CRC Group at Jaypee Greens, Greater Noida.",
-            url: "https://www.crcperidona.in/",
-            image: "https://www.crcperidona.in/homeHero.webp",
+            url: "https://thecrcperidona.com/",
+            image: "https://thecrcperidona.com/homeHero.webp",
             telephone: "+91-7304216059",
             priceRange: "₹12.5Cr+",
             areaServed: { "@type": "Place", name: "Greater Noida, Uttar Pradesh" },

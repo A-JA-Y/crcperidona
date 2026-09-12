@@ -51,7 +51,7 @@ export const blogData: BlogMeta[] = [
       "CRC Group",
     ],
     canonical:
-      "https://www.crcperidona.in/blogs/crc-the-peridona-greater-noida-buyers-guide-2026",
+      "https://thecrcperidona.com/blogs/crc-the-peridona-greater-noida-buyers-guide-2026",
 
     /* Display */
     image: "/blog-1.webp",
@@ -252,7 +252,7 @@ export const blogData: BlogMeta[] = [
     ],
 
     canonical:
-      "https://www.crcperidona.in/blogs/jewar-airport-crc-the-peridona-investment-2026",
+      "https://thecrcperidona.com/blogs/jewar-airport-crc-the-peridona-investment-2026",
 
     altText:
       "CRC The Peridona towers at Jaypee Greens Greater Noida near the Greg Norman golf course, in the Jewar airport corridor",
@@ -294,7 +294,7 @@ export const blogData: BlogMeta[] = [
       "Jewar Airport & the Rise of Ultra-Luxury: Why CRC The Peridona Is NCR's Most Watched Investment of 2026",
     "description":
       "How the Noida International Airport at Jewar, NCR's luxury housing upcycle, and a limited inventory of 341 residences make CRC The Peridona at Jaypee Greens one of 2026's most compelling investment stories.",
-    "image": "https://www.crcperidona.in/blog-2.webp",
+    "image": "https://thecrcperidona.com/blog-2.webp",
     "author": {
       "@type": "Person",
       "name": "Admin"
@@ -304,7 +304,7 @@ export const blogData: BlogMeta[] = [
       "name": "CRC The Peridona",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.crcperidona.in/homeHero.webp"
+        "url": "https://thecrcperidona.com/homeHero.webp"
       }
     },
     "datePublished": "2026-05-13",
@@ -312,7 +312,7 @@ export const blogData: BlogMeta[] = [
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id":
-        "https://www.crcperidona.in/blogs/jewar-airport-crc-the-peridona-investment-2026"
+        "https://thecrcperidona.com/blogs/jewar-airport-crc-the-peridona-investment-2026"
     },
     "articleSection": "Real Estate Investment",
     "keywords":
@@ -327,9 +327,9 @@ export const blogData: BlogMeta[] = [
     "name": "CRC The Peridona",
     "description":
       "An ultra-luxury residential development of 341 residences across 7 towers of 43 floors on 6.80 acres inside the 452-acre Jaypee Greens golf township, Greater Noida, by CRC Group.",
-    "url": "https://www.crcperidona.in/",
+    "url": "https://thecrcperidona.com/",
     "image": [
-      "https://www.crcperidona.in/blog-2.webp"
+      "https://thecrcperidona.com/blog-2.webp"
     ],
     "address": {
       "@type": "PostalAddress",
