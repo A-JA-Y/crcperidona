@@ -69,6 +69,7 @@ export const metadata: Metadata = {
 
 import { ModalProvider } from "@/components/ModalContext";
 import ScrollReveal from "@/components/ScrollReveal";
+import FloatingContactButtons from "@/components/FloatingContactButtons";
 
 export default function RootLayout({
   children,
@@ -109,6 +110,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <ModalProvider>
           {children}
         </ModalProvider>
+        <FloatingContactButtons />
       </body>
     </html>
   );

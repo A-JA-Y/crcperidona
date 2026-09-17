@@ -67,7 +67,19 @@ export default function Footer() {
               <svg className="w-3 h-3 text-[#c9a84c] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
               </svg>
-              +91 7304216059
+              <a href="tel:+917304216059" className="hover:text-[#DCA54A] transition-colors">
+                +91 73042 16059
+              </a>
+            </div>
+
+            <p className="text-[#c9a84c] text-[11px] font-semibold tracking-widest uppercase mt-5 mb-3">
+              Channel Partner Office
+            </p>
+            <div className="flex items-start gap-1.5 text-gray-300 text-xs">
+              <svg className="w-3 h-3 text-[#c9a84c] flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              Bhutani Alphathum, Tower B, 25th Floor, Sector 90, Noida, Uttar Pradesh
             </div>
           </div>
         </div>
@@ -89,8 +101,16 @@ export default function Footer() {
 
         <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-center">
           <p className="text-[#fff] text-xs tracking-wide">
-            Copyright &copy; 2026{" "}
-            <span className="font-bold">CRC The Peridona</span> All Rights Reserved
+            Copyright &copy; 2026 Official Channel Partner{" "}
+            <a
+              href="https://realrevenue.in"
+              target="_blank"
+              rel="noopener"
+              className="font-bold hover:text-[#DCA54A] transition-colors"
+            >
+              realrevenue.in
+            </a>
+            . All Rights Reserved
           </p>
           <span className="text-white/20 hidden sm:inline">|</span>
           <Link href="/privacy-policy" className="text-[#fff] text-xs hover:text-[#DCA54A] transition-colors">

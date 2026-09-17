@@ -89,6 +89,15 @@ export default function ContactUsPage() {
                 practice range.
               </p>
             </div>
+            <div className={prose.card}>
+              <p className="text-[#c8922a] text-xs uppercase tracking-widest font-semibold mb-1">
+                Channel Partner Office
+              </p>
+              <p className="text-gray-900 text-lg font-semibold">realrevenue.in</p>
+              <p className="text-gray-600 text-sm leading-relaxed mt-2">
+                Bhutani Alphathum, Tower B, 25th Floor, Sector 90, Noida, Uttar Pradesh
+              </p>
+            </div>
           </div>
 
           {/* What We Can Send You */}
