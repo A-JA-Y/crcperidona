@@ -116,6 +116,15 @@ export default function Footer() {
           <Link href="/privacy-policy" className="text-[#fff] text-xs hover:text-[#DCA54A] transition-colors">
             Privacy Policy / Disclaimer
           </Link>
+          <span className="text-white/20 hidden sm:inline">|</span>
+          <a
+            href="https://tracentobygaurs.com/"
+            target="_blank"
+            rel="noopener"
+            className="text-[#fff] text-xs font-bold hover:text-[#DCA54A] transition-colors"
+          >
+            tracentobygaurs.com
+          </a>
         </div>
       </div>
     </footer>
