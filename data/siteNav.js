@@ -14,3 +14,9 @@ export const siteNavLinks = [
 ];
 
 export const footerNavLinks = siteNavLinks;
+
+// Standalone buyer-guide pages, listed in the footer (kept out of the header nav).
+export const guideLinks = [
+  { label: "Villa vs Flat in Jaypee Greens", href: "/villa-vs-flat-jaypee-greens" },
+  { label: "Super Built-Up Area vs Carpet Area", href: "/super-built-up-area-vs-carpet-area" },
+];

@@ -26,8 +26,27 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Structure
 
-- `app/` — App Router pages (home, about, residences, price, floor plans, location, amenities, contact, blogs, news)
+- `app/` — App Router pages (home, about, residences, price, floor plans, location, amenities, contact, buyer guides, blogs, news)
 - `components/` — shared UI components (header, footer, hero, forms, modals)
 - `assets-crc/` — project imagery; `assets/` — brand logos
 - `data/` — navigation and content data
 - `public/` — static files (brochure, robots.txt, sitemap.xml, og image)
+
+## Deploying to Cloudflare
+
+The site is a static export (`output: "export"`), so `npm run build` writes the whole site to `out/`. `wrangler.jsonc` serves that folder as static assets on Cloudflare Workers.
+
+In the Cloudflare dashboard, connect this repository and use:
+
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy`
+
+The Worker name in `wrangler.jsonc` (`crcperidona`) must match the Worker name in your Cloudflare account.
+
+To deploy from your own machine:
+
+```bash
+npm run build && npx wrangler deploy
+```
+
+Note: `next-sitemap` runs after the export, so it rewrites `public/sitemap.xml` but not `out/sitemap.xml`. The deployed sitemap is the committed `public/sitemap.xml`; add new pages to it by hand (or rebuild twice).
