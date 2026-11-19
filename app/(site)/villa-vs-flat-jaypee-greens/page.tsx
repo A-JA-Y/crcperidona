@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
+import GuideHero from "@/components/GuideHero";
+import YouTubeFacade from "@/components/YouTubeFacade";
+import PeridonaFilm from "@/components/PeridonaFilm";
 import ModalWrapper from "@/components/ModalWrapper";
 import StickyDownloadButton from "@/components/StickyButton";
 import CtaRow from "@/components/CtaRow";
 import { RERA_NO, ReraLink, SALES_PHONE_HREF } from "@/components/ProjectSnapshot";
 import { prose } from "@/utils/prose";
+import villaImg from "@/assets-crc/neighborhood.webp";
+import terraceImg from "@/assets-crc/peridona-terrace-golf-view.webp";
 
 const pageUrl = "https://thecrcperidona.com/villa-vs-flat-jaypee-greens";
 const title = "Villa vs Flat in Jaypee Greens: Golf Villa or Sky Residence?";
@@ -35,6 +40,19 @@ export const metadata: Metadata = {
     images: ["https://thecrcperidona.com/homeHero.webp"],
   },
 };
+
+const tourVideos = [
+  {
+    id: "NZupopdpat8",
+    title: "Jaypee Greens Most Premium & Luxurious Villas at Greater Noida",
+    channel: "Investor’s Monopoly",
+  },
+  {
+    id: "ouKGoPFc_Pw",
+    title: "Inside Jaypee Greens Greater Noida: Where Golf-Course Living Meets Luxury",
+    channel: "Investor’s Monopoly",
+  },
+];
 
 const villaPrices = [
   "An established villa project listed at ₹14.04–16.2 crore, at a basic rate of about ₹27,000 per sq. ft.",
@@ -88,8 +106,7 @@ const faqData = [
   },
   {
     question: "Is CRC The Peridona RERA registered?",
-    answer:
-      "Yes, under UP RERA number UPRERAPRJ298067/05/2025. You can verify it on up-rera.in.",
+    answer: "Yes, under UP RERA number UPRERAPRJ298067/05/2025. You can verify it on up-rera.in.",
   },
   {
     question: "How far is CRC The Peridona from Pari Chowk and Jewar airport?",
@@ -107,6 +124,21 @@ const externalLink = (href: string, label: string) => (
 export default function VillaVsFlatPage() {
   return (
     <>
+      <GuideHero
+        vs
+        images={[
+          {
+            src: villaImg,
+            alt: "Luxury villa with a private garden and pool",
+            label: "Golf Villa",
+          },
+          {
+            src: terraceImg,
+            alt: "Render from the CRC The Peridona film: a private terrace overlooking the Jaypee Greens golf course",
+            label: "Sky Residence",
+          },
+        ]}
+      />
       <PageBanner
         eyebrow="Buyer’s Guide"
         title="Villa vs Flat in Jaypee Greens"
@@ -134,7 +166,9 @@ export default function VillaVsFlatPage() {
           </p>
 
           {/* Difference Between Villa and Flat */}
-          <h2 className={`${prose.h2} mt-12`}>Difference Between Villa and Flat at the Luxury End</h2>
+          <h2 className={`${prose.h2} mt-12`}>
+            Difference Between Villa and Flat at the Luxury End
+          </h2>
           <p className={prose.p}>
             In the mass market, the difference between villa and flat is simple: land and space
             versus convenience. At the luxury end the line blurs. A villa still gives you land, a
@@ -167,9 +201,12 @@ export default function VillaVsFlatPage() {
           </ul>
           <p className={prose.p}>
             At neighbouring{" "}
-            {externalLink("https://www.godrejgolflink.in/villas-configurations", "Godrej Golf Links")},
-            a 4 BHK villa on a 220 sq. yd plot is listed at about ₹7.50 crore, and a 5 BHK on 300 sq.
-            yd at about ₹14 crore.
+            {externalLink(
+              "https://www.godrejgolflink.in/villas-configurations",
+              "Godrej Golf Links",
+            )}
+            , a 4 BHK villa on a 220 sq. yd plot is listed at about ₹7.50 crore, and a 5 BHK on 300
+            sq. yd at about ₹14 crore.
           </p>
           <p className={prose.p}>
             At CRC The Peridona, 4 BHK residences start from 4,950 sq. ft. at a tentative{" "}
@@ -219,13 +256,26 @@ export default function VillaVsFlatPage() {
             to see how each layout uses those two views.
           </p>
 
+          <h3 className={`${prose.h3} mt-8`}>Tour Jaypee Greens: Villas and Golf-Course Living</h3>
+          <p className={prose.p}>
+            See the township’s villa enclaves and the golf-course setting before you visit.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
+            {tourVideos.map((v) => (
+              <YouTubeFacade key={v.id} id={v.id} title={v.title} channel={v.channel} />
+            ))}
+          </div>
+          <p className={`${prose.note} mb-4`}>
+            Third-party videos embedded from YouTube. The views in them are the creators’ own.
+          </p>
+
           {/* Amenities */}
           <h2 className={`${prose.h2} mt-12`}>Amenities</h2>
           <p className={prose.p}>
             Villa enclaves usually share a community club, and these vary a lot by project and age.
             A new luxury tower can build amenities at a much bigger scale. At CRC The Peridona, The
-            Club is 1.8 lakh sq. ft. across three levels, with interiors by Rockwell Group, and there
-            is a 75,500 sq. ft. rooftop skydeck. See the full{" "}
+            Club is 1.8 lakh sq. ft. across three levels, with interiors by Rockwell Group, and
+            there is a 75,500 sq. ft. rooftop skydeck. See the full{" "}
             <Link href="/amenities" className={prose.link}>
               amenities
             </Link>{" "}
@@ -236,8 +286,8 @@ export default function VillaVsFlatPage() {
           <h2 className={`${prose.h2} mt-12`}>Upkeep and Staff</h2>
           <p className={prose.p}>
             A large villa runs like a small estate. You’ll need a gardener, housekeeping, often a
-            guard, and someone to look after the roof, the façade, the pumps and the pool if you have
-            one. Daily life also spreads across several floors.
+            guard, and someone to look after the roof, the façade, the pumps and the pool if you
+            have one. Daily life also spreads across several floors.
           </p>
           <p className={prose.p}>
             A sky residence is lock-and-leave. Facility management looks after the building,
@@ -287,7 +337,10 @@ export default function VillaVsFlatPage() {
           </div>
           <p className={prose.p}>
             Read our take on{" "}
-            <Link href="/blogs/jewar-airport-crc-the-peridona-investment-2026" className={prose.link}>
+            <Link
+              href="/blogs/jewar-airport-crc-the-peridona-investment-2026"
+              className={prose.link}
+            >
               Jewar airport and the rise of ultra-luxury homes
             </Link>
             .
@@ -365,7 +418,10 @@ export default function VillaVsFlatPage() {
           </ul>
           <p className={prose.p}>
             Our{" "}
-            <Link href="/blogs/crc-the-peridona-greater-noida-buyers-guide-2026" className={prose.link}>
+            <Link
+              href="/blogs/crc-the-peridona-greater-noida-buyers-guide-2026"
+              className={prose.link}
+            >
               complete buyer’s guide
             </Link>{" "}
             covers these checks in more detail.
@@ -387,42 +443,45 @@ export default function VillaVsFlatPage() {
             apartments in Greater Noida: seven towers of 43 floors each, about 160 m tall, with 341
             residences in total.
           </p>
-          <ul className={prose.ul}>
-            <li className={prose.li}>
-              <span className={prose.tick}>✓</span>
-              <span>
-                <strong>Homes:</strong>{" "}
-                <Link href="/residences" className={prose.link}>
-                  4, 4.5 and 5.5 BHK residences and penthouses
-                </Link>
-              </span>
-            </li>
-            <li className={prose.li}>
-              <span className={prose.tick}>✓</span>
-              <span>
-                <strong>Possession:</strong> February 2030
-              </span>
-            </li>
-            <li className={prose.li}>
-              <span className={prose.tick}>✓</span>
-              <span>
-                <strong>RERA:</strong> {RERA_NO}
-              </span>
-            </li>
-            <li className={prose.li}>
-              <span className={prose.tick}>✓</span>
-              <span>
-                <strong>More:</strong>{" "}
-                <Link href="/about-the-peridona" className={prose.link}>
-                  About The Peridona
-                </Link>{" "}
-                and{" "}
-                <Link href="/location-connectivity" className={prose.link}>
-                  location and connectivity
-                </Link>
-              </span>
-            </li>
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mb-6">
+            <ul className={prose.ul}>
+              <li className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>Homes:</strong>{" "}
+                  <Link href="/residences" className={prose.link}>
+                    4, 4.5 and 5.5 BHK residences and penthouses
+                  </Link>
+                </span>
+              </li>
+              <li className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>Possession:</strong> February 2030
+                </span>
+              </li>
+              <li className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>RERA:</strong> {RERA_NO}
+                </span>
+              </li>
+              <li className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>More:</strong>{" "}
+                  <Link href="/about-the-peridona" className={prose.link}>
+                    About The Peridona
+                  </Link>{" "}
+                  and{" "}
+                  <Link href="/location-connectivity" className={prose.link}>
+                    location and connectivity
+                  </Link>
+                </span>
+              </li>
+            </ul>
+            <PeridonaFilm />
+          </div>
 
           <h2 className={`${prose.h2} mt-12`}>If a Villa Suits You Better</h2>
           <ul className={prose.ul}>
@@ -467,11 +526,11 @@ export default function VillaVsFlatPage() {
         <div className={prose.inner}>
           <h2 className={prose.h2}>Conclusion</h2>
           <p className={prose.p}>
-            At the luxury end, villa vs flat isn’t about which one is cheaper. A golf villa gives you
-            land, a garden and a home you can move into now, but it needs staff and upkeep. A
+            At the luxury end, villa vs flat isn’t about which one is cheaper. A golf villa gives
+            you land, a garden and a home you can move into now, but it needs staff and upkeep. A
             one-apartment-per-floor sky residence gives you villa-level privacy, golf course views
-            and a large modern club with very little upkeep, but you’ll wait until 2030 for the keys.
-            Pick the trade-off that fits the next twenty years, not just the next two.
+            and a large modern club with very little upkeep, but you’ll wait until 2030 for the
+            keys. Pick the trade-off that fits the next twenty years, not just the next two.
           </p>
           <p className={prose.p}>
             To request the full cost sheet for CRC The Peridona,{" "}

@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
+import GuideHero from "@/components/GuideHero";
+import YouTubeFacade from "@/components/YouTubeFacade";
+import PeridonaFilm from "@/components/PeridonaFilm";
 import ModalWrapper from "@/components/ModalWrapper";
 import StickyDownloadButton from "@/components/StickyButton";
 import CtaRow from "@/components/CtaRow";
 import SimpleTable from "@/components/SimpleTable";
 import { RERA_NO, ReraLink, SALES_PHONE_HREF } from "@/components/ProjectSnapshot";
 import { prose } from "@/utils/prose";
+import heroImg from "@/assets-crc/vision.webp";
 
 const pageUrl = "https://thecrcperidona.com/super-built-up-area-vs-carpet-area";
 const title = "Super Built-Up Area vs Carpet Area: Reading a UP RERA Record";
@@ -38,10 +42,23 @@ export const metadata: Metadata = {
   },
 };
 
+const explainerVideos = [
+  {
+    id: "o_2FVJMorHY",
+    title: "Property Explained: Carpet Area vs Built-Up Area vs Super Area",
+    channel: "NDTV",
+  },
+  {
+    id: "R3fKEhecdPw",
+    title: "Carpet Area vs Built-Up Area vs Super Built-Up Area",
+    channel: "MBTV by Magicbricks · in Hindi",
+  },
+];
+
 const reraSteps = [
   <>
-    Go to <ReraLink /> and search the project by its registration number. For CRC The Peridona it
-    is {RERA_NO}.
+    Go to <ReraLink /> and search the project by its registration number. For CRC The Peridona it is{" "}
+    {RERA_NO}.
   </>,
   <>
     Open the table of apartments. Each row gives the tower, the floor, the home type, the number of
@@ -143,6 +160,15 @@ const faqData = [
 export default function SuperBuiltUpVsCarpetAreaPage() {
   return (
     <>
+      <GuideHero
+        images={[
+          {
+            src: heroImg,
+            alt: "Measuring a floor plan with a scale ruler to check the carpet area",
+          },
+        ]}
+        chips={["Carpet area", "Super area", "UP RERA"]}
+      />
       <PageBanner
         eyebrow="Buyer’s Guide"
         title="Super Built-Up Area vs Carpet Area"
@@ -194,6 +220,20 @@ export default function SuperBuiltUpVsCarpetAreaPage() {
             finalise. Brochures still quote super area, so you need both numbers.
           </p>
 
+          <h3 className={`${prose.h3} mt-8`}>Video Explainers: Carpet, Built-Up and Super Area</h3>
+          <p className={prose.p}>
+            Two short explainers on how the three measures differ. They cover the national picture;
+            for the UP-specific steps, follow the guide below.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
+            {explainerVideos.map((v) => (
+              <YouTubeFacade key={v.id} id={v.id} title={v.title} channel={v.channel} />
+            ))}
+          </div>
+          <p className={`${prose.note} mb-4`}>
+            Third-party videos embedded from YouTube. The views in them are the creators’ own.
+          </p>
+
           {/* How to Check Carpet Area on UP RERA */}
           <h2 className={`${prose.h2} mt-12`}>How to Check Carpet Area on UP RERA</h2>
           <ol className={prose.ul}>
@@ -234,8 +274,8 @@ export default function SuperBuiltUpVsCarpetAreaPage() {
             5,557 to 9,756 sq. ft. of carpet.
           </p>
           <p className={prose.p}>
-            The brochure figure is a different measure. The 4 BHK is marketed from 4,950 sq. ft., and
-            that is super area. No home’s carpet matches that number, and none should.
+            The brochure figure is a different measure. The 4 BHK is marketed from 4,950 sq. ft.,
+            and that is super area. No home’s carpet matches that number, and none should.
           </p>
 
           {/* Loading in a Luxury Tower */}
@@ -245,10 +285,10 @@ export default function SuperBuiltUpVsCarpetAreaPage() {
             and no rule caps it.
           </p>
           <p className={prose.p}>
-            A tower with very few homes on each floor has little shared corridor, which pulls loading
-            down. It also has fewer owners to share the lobby, lifts and amenities, which pulls it
-            up. At CRC The Peridona those shared spaces include a 1.8 lakh sq. ft. club on three
-            levels and a 75,500 sq. ft. rooftop.
+            A tower with very few homes on each floor has little shared corridor, which pulls
+            loading down. It also has fewer owners to share the lobby, lifts and amenities, which
+            pulls it up. At CRC The Peridona those shared spaces include a 1.8 lakh sq. ft. club on
+            three levels and a 75,500 sq. ft. rooftop.
           </p>
           <p className={prose.p}>
             So the layout alone won’t tell you the loading. Two numbers will: the super area on your
@@ -272,14 +312,14 @@ export default function SuperBuiltUpVsCarpetAreaPage() {
             className="mb-6"
           />
           <p className={prose.p}>
-            This shows the method. It doesn’t say which tower the 4,950 sq. ft. home sits in. Ask for
-            the tower and the RERA carpet of the exact home on your cost sheet, then run the same
-            sum.
+            This shows the method. It doesn’t say which tower the 4,950 sq. ft. home sits in. Ask
+            for the tower and the RERA carpet of the exact home on your cost sheet, then run the
+            same sum.
           </p>
           <p className={prose.p}>
-            The base price is not the full cost. Stamp duty, registration, GST, PLC, club membership,
-            maintenance security and charges, parking and power backup come on top. Add them before
-            you divide. Current figures are on the{" "}
+            The base price is not the full cost. Stamp duty, registration, GST, PLC, club
+            membership, maintenance security and charges, parking and power backup come on top. Add
+            them before you divide. Current figures are on the{" "}
             <Link href="/price" className={prose.link}>
               CRC The Peridona price
             </Link>{" "}
@@ -309,54 +349,57 @@ export default function SuperBuiltUpVsCarpetAreaPage() {
             <Link href="/about-the-peridona" className={prose.link}>
               CRC The Peridona
             </Link>{" "}
-            has 341 residences in seven towers on 6.80 acres inside Jaypee Greens, Greater Noida. The
-            developer is{" "}
+            has 341 residences in seven towers on 6.80 acres inside Jaypee Greens, Greater Noida.
+            The developer is{" "}
             <Link href="/about-crc-group" className={prose.link}>
               CRC Group
             </Link>
             .
           </p>
-          <ul className={prose.ul}>
-            <li className={prose.li}>
-              <span className={prose.tick}>✓</span>
-              <span>
-                <strong>Homes:</strong> 4, 4.5 and 5.5 BHK{" "}
-                <Link href="/residences" className={prose.link}>
-                  residences
-                </Link>{" "}
-                and penthouses
-              </span>
-            </li>
-            <li className={prose.li}>
-              <span className={prose.tick}>✓</span>
-              <span>
-                <strong>More:</strong>{" "}
-                <Link href="/amenities" className={prose.link}>
-                  amenities
-                </Link>
-                ,{" "}
-                <Link href="/location-connectivity" className={prose.link}>
-                  location and connectivity
-                </Link>
-                , and the{" "}
-                <Link
-                  href="/blogs/crc-the-peridona-greater-noida-buyers-guide-2026"
-                  className={prose.link}
-                >
-                  CRC The Peridona buyer’s guide
-                </Link>
-              </span>
-            </li>
-            <li className={prose.li}>
-              <span className={prose.tick}>✓</span>
-              <span>
-                <strong>Weighing a villa instead?</strong> Read{" "}
-                <Link href="/villa-vs-flat-jaypee-greens" className={prose.link}>
-                  villa vs flat in Jaypee Greens
-                </Link>
-              </span>
-            </li>
-          </ul>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <ul className={prose.ul}>
+              <li className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>Homes:</strong> 4, 4.5 and 5.5 BHK{" "}
+                  <Link href="/residences" className={prose.link}>
+                    residences
+                  </Link>{" "}
+                  and penthouses
+                </span>
+              </li>
+              <li className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>More:</strong>{" "}
+                  <Link href="/amenities" className={prose.link}>
+                    amenities
+                  </Link>
+                  ,{" "}
+                  <Link href="/location-connectivity" className={prose.link}>
+                    location and connectivity
+                  </Link>
+                  , and the{" "}
+                  <Link
+                    href="/blogs/crc-the-peridona-greater-noida-buyers-guide-2026"
+                    className={prose.link}
+                  >
+                    CRC The Peridona buyer’s guide
+                  </Link>
+                </span>
+              </li>
+              <li className={prose.li}>
+                <span className={prose.tick}>✓</span>
+                <span>
+                  <strong>Weighing a villa instead?</strong> Read{" "}
+                  <Link href="/villa-vs-flat-jaypee-greens" className={prose.link}>
+                    villa vs flat in Jaypee Greens
+                  </Link>
+                </span>
+              </li>
+            </ul>
+            <PeridonaFilm />
+          </div>
         </div>
       </section>
 
@@ -381,9 +424,9 @@ export default function SuperBuiltUpVsCarpetAreaPage() {
           <h2 className={prose.h2}>Conclusion</h2>
           <p className={prose.p}>
             On super built-up area vs carpet area, the UP RERA record settles the question. The
-            brochure size is super area. The filed size is carpet, in sq. m, and it differs by tower.
-            Convert it, match it to your cost sheet, and work out your own rate before you compare
-            homes.
+            brochure size is super area. The filed size is carpet, in sq. m, and it differs by
+            tower. Convert it, match it to your cost sheet, and work out your own rate before you
+            compare homes.
           </p>
           <p className={prose.p}>
             For the cost sheet, unit plans and the RERA carpet of any home at CRC The Peridona,{" "}
