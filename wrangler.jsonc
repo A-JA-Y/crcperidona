@@ -1,0 +1,27 @@
+// Cloudflare Workers config for the CRC The Peridona microsite.
+//
+// The site is a fully static Next.js export (`output: "export"` in next.config.ts),
+// so `npm run build` writes plain HTML/CSS/JS to ./out and Cloudflare serves it
+// as static assets — no Worker script or Next.js adapter is needed.
+//
+// Cloudflare dashboard (Workers & Pages → your Worker → Settings → Build):
+//   Build command:  npm run build
+//   Deploy command: npx wrangler deploy
+//
+// Local deploy:  npm run build && npx wrangler deploy
+{
+  // Must match the Worker name in your Cloudflare account.
+  "name": "crcperidona",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    // Next.js static export output directory.
+    "directory": "./out",
+    // Serves /price from out/price.html and redirects /price/ → /price.
+    "html_handling": "auto-trailing-slash",
+    // Unknown routes get Next.js's generated out/404.html with a 404 status.
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

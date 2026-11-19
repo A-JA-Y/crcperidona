@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { footerNavLinks } from "@/data/siteNav";
+import { footerNavLinks, guideLinks } from "@/data/siteNav";
 import { networkSites } from "@/data/networkSites";
 
 export default function Footer() {
@@ -84,6 +84,25 @@ export default function Footer() {
               Bhutani Alphathum, Tower B, 25th Floor, Sector 90, Noida, Uttar Pradesh
             </div>
           </div>
+        </div>
+
+        {/* Buyer Guides — standalone guide pages */}
+        <div className="mb-8">
+          <p className="text-[#c9a84c] text-[11px] font-semibold tracking-widest uppercase mb-3">
+            Buyer Guides
+          </p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-2">
+            {guideLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="inline-block text-gray-300 text-xs hover:text-[#DCA54A] hover:translate-x-1 transition-all duration-300"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Additional Links — sister project websites */}
