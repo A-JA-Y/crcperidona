@@ -19,4 +19,5 @@ export const footerNavLinks = siteNavLinks;
 export const guideLinks = [
   { label: "Villa vs Flat in Jaypee Greens", href: "/villa-vs-flat-jaypee-greens" },
   { label: "Super Built-Up Area vs Carpet Area", href: "/super-built-up-area-vs-carpet-area" },
+  { label: "Rent vs Buy in Greater Noida", href: "/blogs/rent-vs-buy-house-greater-noida" },
 ];
