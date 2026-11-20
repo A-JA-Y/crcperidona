@@ -1,0 +1,412 @@
+import ModalWrapper from "@/components/ModalWrapper";
+import StickyDownloadButton from "@/components/StickyButton";
+import YouTubeFacade from "@/components/YouTubeFacade";
+import PeridonaFilm from "@/components/PeridonaFilm";
+import CtaRow from "@/components/CtaRow";
+import CtaBand from "@/components/blog/CtaBand";
+import StatTiles from "@/components/blog/StatTiles";
+import CompareBars from "@/components/blog/CompareBars";
+import SegmentedBar from "@/components/blog/SegmentedBar";
+import HeatTable from "@/components/blog/HeatTable";
+import WaitTimeline from "@/components/blog/WaitTimeline";
+import LedgerTable from "@/components/blog/LedgerTable";
+import FitCards from "@/components/blog/FitCards";
+import BlogFigure from "@/components/blog/BlogFigure";
+import golfAerial from "@/assets-crc/jaypee-greens-golf-aerial.webp";
+import towersRender from "@/assets-crc/peridona-towers-film.webp";
+
+<ModalWrapper />
+<StickyDownloadButton />
+
+<ArticleWrap>
+
+<NewsCategory>Buyer Guide | Greater Noida | Rent vs Buy</NewsCategory>
+
+# Rent vs Buy House in Greater Noida: The Numbers at the Top End
+
+<NewsMeta>
+<span>10 Min Read</span>
+<span>•</span>
+<span>Updated November 2026</span>
+<span>•</span>
+<span>Jaypee Greens, Greater Noida</span>
+</NewsMeta>
+
+Most rent vs buy house guides for Greater Noida use a ₹1 crore flat and a ₹25,000 rent. At ₹12.5 crore the question changes. Nobody at this level buys to save on rent. The useful question is what owning costs you each year, and whether the home is worth that to you.
+
+This page works it through for a 4 BHK at CRC The Peridona in Jaypee Greens, from ₹12.5 crore\*. It is arithmetic, not advice.
+
+<StatTiles
+  items={[
+    { label: "Price of a 4 BHK", value: "₹12.5 Cr*", note: "From 4,950 sq. ft., tentative" },
+    { label: "Rent for a similar home", value: "₹2 lakh", note: "A month, in Jaypee Greens" },
+    { label: "EMI at 8% for 20 years", value: "₹7.84 lakh", note: "A month, on a ₹9.375 Cr loan" },
+    { label: "Possession", value: "Feb 2030", note: "A little over three years away" },
+  ]}
+/>
+
+<CtaRow
+  className="mb-12 font-sans"
+  items={[
+    { label: "Get the brochure & cost sheet" },
+    { label: "See price & payment plans", href: "/price" },
+  ]}
+/>
+
+<TOC
+  items={[
+    { label: "Rent and Price in Jaypee Greens", href: "#rent-and-price-in-jaypee-greens" },
+    { label: "Rent vs EMI: A Worked Example", href: "#rent-vs-emi-a-worked-example" },
+    { label: "What Owning Costs Each Year", href: "#what-owning-costs-each-year" },
+    { label: "The Wait Until February 2030", href: "#the-wait-until-february-2030" },
+    { label: "When Does Buying Break Even?", href: "#when-does-buying-break-even" },
+    { label: "Tax on Rent and Home Loans", href: "#tax-on-rent-and-home-loans" },
+    { label: "Is It Better to Rent or Buy a House at This Level?", href: "#is-it-better-to-rent-or-buy-a-house-at-this-level" },
+    { label: "CRC The Peridona", href: "#crc-the-peridona" },
+    { label: "FAQs", href: "#faqs" },
+    { label: "Conclusion", href: "#conclusion" },
+  ]}
+/>
+
+## Rent and Price in Jaypee Greens
+
+**Rent.** A 4 BHK for rent in Jaypee Greens of about 4,600 sq. ft. asks around ₹2 lakh a month. Smaller 4 BHKs of about 3,100 sq. ft. start near ₹86,000. This page uses ₹2 lakh for a home of similar size.
+
+**Price.** The 4 BHK here starts at 4,950 sq. ft. and a tentative ₹12.5 crore\*, about ₹25,000 per sq. ft. The Jaypee Greens average is about ₹14,450 per sq. ft., so this is priced well above the neighbourhood.
+
+**Yield.** A year’s rent of ₹24 lakh is about 1.9% of the price. Put another way, the price equals 52 years of today’s rent.
+
+<div className="my-10 font-sans">
+  <YouTubeFacade
+    id="ouKGoPFc_Pw"
+    title="Inside Jaypee Greens Greater Noida: Where Golf-Course Living Meets Luxury"
+    channel="Investor’s Monopoly"
+  />
+</div>
+
+## Rent vs EMI: A Worked Example
+
+**Buying**
+
+- Price: ₹12.5 crore
+- Down payment at 25%: ₹3.125 crore. Banks lend at most 75% on loans above ₹75 lakh.
+- GST at 5%: ₹62.5 lakh
+- Stamp duty in Greater Noida at 7% plus 1% registration: ₹1 crore
+- Your own money in total: about ₹4.75 crore
+- Loan: ₹9.375 crore
+- EMI at 8% for 20 years: about ₹7.84 lakh a month
+- Upkeep a tenant wouldn’t pay: say ₹40,000 a month
+
+**Renting**
+
+- A similar home: about ₹2 lakh a month, rising about 5% a year
+
+<SegmentedBar
+  title="Your own money in total"
+  total="₹4.75 crore"
+  segments={[
+    { label: "Down payment at 25%", value: 3.125, display: "₹3.125 crore", color: "#b07d1f", ink: "dark" },
+    { label: "GST at 5%", value: 0.625, display: "₹62.5 lakh", color: "#3f6fb0", ink: "light" },
+    { label: "Stamp duty 7% + registration 1%", value: 1, display: "₹1 crore", color: "#b54d31", ink: "light" },
+  ]}
+/>
+
+<CompareBars
+  title="Each month: rent vs EMI"
+  subtitle="A similar 4 BHK in Jaypee Greens against the EMI on a ₹9.375 crore loan at 8% for 20 years."
+  max={10}
+  rows={[
+    {
+      label: "Rent on a similar home",
+      value: 2,
+      display: "₹2 lakh",
+      tone: "rent",
+      details: [
+        { value: "₹2 lakh", label: "a month for about 4,600 sq. ft." },
+        { value: "5%", label: "assumed yearly rise" },
+      ],
+    },
+    {
+      label: "EMI at 8% for 20 years",
+      value: 7.84,
+      display: "₹7.84 lakh",
+      tone: "buy",
+      details: [
+        { value: "₹7.55 lakh", label: "at 7.5%" },
+        { value: "₹7.84 lakh", label: "at 8%" },
+        { value: "₹8.14 lakh", label: "at 8.5%" },
+        { value: "₹40,000", label: "upkeep on top" },
+      ],
+    },
+  ]}
+  ticks={[
+    { value: 0, label: "₹0" },
+    { value: 2.5, label: "₹2.5L" },
+    { value: 5, label: "₹5L" },
+    { value: 7.5, label: "₹7.5L" },
+    { value: 10, label: "₹10L" },
+  ]}
+  gap={{ from: 2, to: 7.84, label: "Nearly 4× the rent" }}
+/>
+
+The EMI is nearly four times the rent. At 7.5% it is about ₹7.55 lakh, and at 8.5% about ₹8.14 lakh. Ask your lender for today’s rate.
+
+<p className="mt-10 mb-4 font-sans text-[12px] font-semibold uppercase tracking-[0.18em] text-[#a8761c]">Watch: the same question at mid-market prices</p>
+
+<div className="mb-10 grid gap-8 sm:grid-cols-2 font-sans">
+  <YouTubeFacade id="HRVED93mXoY" title="HOUSE - Rent or Buy (The 420 Rule)" channel="Zero1 by Zerodha" />
+  <YouTubeFacade
+    id="C7XdQOxQgj0"
+    title="₹1 Cr House vs ₹30K Rent: Which Actually Builds More Wealth? (20-Year Test)"
+    channel="Angel One for Investors"
+  />
+</div>
+
+## What Owning Costs Each Year
+
+EMI mixes interest with repayment, so it overstates the cost. A cleaner way is to add up what owning costs in a year and set it against rent. These figures are for the first year after possession.
+
+<LedgerTable
+  head={["Yearly cost", "Amount"]}
+  rows={[
+    { label: "Interest on a ₹9.375 crore loan at 8%", value: "₹75 lakh" },
+    { label: "Return given up on ₹4.75 crore of your own money, at 7% to 9%", value: "₹33 lakh to ₹43 lakh" },
+    { label: "Upkeep", value: "₹4.8 lakh" },
+    { label: "Cost of owning", value: "₹1.13 crore to ₹1.23 crore", total: true },
+    { label: "Rent on a similar home by then", value: "about ₹28 lakh" },
+    { label: "Extra cost of owning", value: "₹85 lakh to ₹95 lakh", total: true },
+  ]}
+/>
+
+<CompareBars
+  title="First year after possession: owning vs renting"
+  subtitle="The lighter end of the gold bar is the range between a 7% and a 9% return on your own money."
+  max={1.25}
+  rows={[
+    {
+      label: "Owning a ₹12.5 crore home",
+      value: 1.13,
+      high: 1.23,
+      display: "₹1.13–1.23 crore",
+      tone: "buy",
+      details: [
+        { value: "₹75 lakh", label: "interest at 8%" },
+        { value: "₹33–43 lakh", label: "return given up on ₹4.75 crore" },
+        { value: "₹4.8 lakh", label: "upkeep" },
+      ],
+    },
+    {
+      label: "Renting a similar home",
+      value: 0.28,
+      display: "about ₹28 lakh",
+      tone: "rent",
+      details: [{ value: "₹28 lakh", label: "a year by then, after 5% yearly rises" }],
+    },
+  ]}
+  ticks={[
+    { value: 0, label: "₹0" },
+    { value: 0.25, label: "₹25L" },
+    { value: 0.5, label: "₹50L" },
+    { value: 0.75, label: "₹75L" },
+    { value: 1, label: "₹1 Cr" },
+    { value: 1.25, label: "₹1.25 Cr" },
+  ]}
+  gap={{ from: 0.28, to: 1.13, label: "₹85–95 lakh a year more to own" }}
+/>
+
+That extra cost is about 7% to 7.5% of the price. If the home gains that much in a year, owning and renting come out level. If it gains less, owning is the dearer choice for that year, and you are paying for the home itself, not for a return.
+
+<CtaBand
+  eyebrow="Your own numbers"
+  title="Want this worked out on the real cost sheet?"
+  text="Ask for the current price, GST, stamp duty and the payment schedule in writing, then run the figures above with your own loan and rate."
+  items={[
+    { label: "Request the cost sheet" },
+    { label: "Call +91 73042 16059", href: "tel:+917304216059" },
+  ]}
+/>
+
+## The Wait Until February 2030
+
+Possession is scheduled for February 2030, a little over three years away.
+
+<WaitTimeline
+  title="From booking to possession"
+  months={39}
+  start={{ label: "November 2026", sub: "Booking" }}
+  end={{ label: "February 2030", sub: "Scheduled possession" }}
+  ticks={[
+    { label: "2027", month: 2 },
+    { label: "2028", month: 14 },
+    { label: "2029", month: 26 },
+  ]}
+/>
+
+- **Rent while you wait:** about ₹83 lakh in total, if you rent a similar home at ₹2 lakh a month with 5% rises.
+- **Interest while you wait:** about ₹1.25 crore, if the loan is drawn evenly under a construction-linked plan and you pay interest only on what has been drawn.
+- **Tax on that interest:** pre-possession interest is claimed in five yearly parts after possession, and from April 2026 it sits inside the same ₹2 lakh yearly limit. At this loan size it makes little difference.
+
+<BlogFigure
+  src={towersRender}
+  alt="Render of the CRC The Peridona towers at Jaypee Greens, framed by cherry blossom"
+  caption="CRC The Peridona’s towers as shown in the project film. Until February 2030, a buyer pays for a home that is still being built."
+  credit="Render: frame from the CRC The Peridona project film"
+/>
+
+A down payment plan or a custom schedule changes these figures. Ask for the schedule in writing.
+
+<CtaRow className="mb-12 font-sans" items={[{ label: "Ask for the payment schedule" }]} />
+
+## When Does Buying Break Even?
+
+Counting from booking, and including the wait, how fast must the home appreciate to match a tenant who invests the ₹4.75 crore and the monthly difference?
+
+<HeatTable
+  caption="Yearly appreciation the home needs to match renting"
+  corner="Years from booking"
+  columns={["Tenant’s money earns 7%", "Earns 9%", "Earns 11%"]}
+  rows={[
+    { label: "10 years", values: [7.1, 8.2, 9.3] },
+    { label: "15 years", values: [6.7, 8.0, 9.4] },
+    { label: "20 years", values: [6.5, 7.9, 9.5] },
+  ]}
+  lowLabel="Lower bar"
+  highLabel="Higher bar"
+  note="Illustration only, using the figures above. Selling costs and tax on gains are left out."
+/>
+
+At 9%, the ten-year bar is about 8.2% a year. That means ₹12.5 crore becoming about ₹27.5 crore. The bar barely falls with time, because rent at this level is too small against the price to help the owner much.
+
+<div className="my-10 font-sans">
+  <YouTubeFacade
+    id="H6Zu2IvAU48"
+    title="Should You BUY a HOUSE or RENT? Check with this EXCEL SHEET! (Hindi)"
+    channel="Ankur Warikoo"
+  />
+</div>
+
+## Tax on Rent and Home Loans
+
+- **Tenants:** HRA relief is available only in the old regime, and the salary-based limit in Greater Noida is 40%.
+- **TDS on rent:** an individual paying more than ₹50,000 a month must deduct 2%. On ₹2 lakh a month that is ₹48,000 a year.
+- **Owners, old regime:** up to ₹2 lakh of interest a year on a self-occupied home. Against ₹75 lakh of yearly interest, it hardly counts.
+- **New regime:** neither HRA nor the interest deduction.
+
+Check your own position with a tax adviser.
+
+## Is It Better to Rent or Buy a House at This Level?
+
+<FitCards
+  cards={[
+    {
+      title: "Renting usually suits you if:",
+      tone: "rent",
+      items: [
+        "you may move cities or countries within ten years",
+        "you’d rather keep ₹4.75 crore invested and liquid",
+        "you want to live in Jaypee Greens now, not in 2030",
+        "an extra ₹85 lakh to ₹95 lakh a year is more than the home is worth to you",
+      ],
+    },
+    {
+      title: "Buying usually suits you if:",
+      tone: "buy",
+      items: [
+        "this is a home for the long term, for your family and the next generation",
+        "your household takes home about ₹19.6 lakh a month or more, or you’ll borrow much less than 75%",
+        "you want a specific home that can’t be rented: one residence per floor, in a tower that doesn’t exist yet",
+        "you believe large homes on the golf course will stay scarce, and can live with it if prices pause",
+      ],
+    },
+  ]}
+/>
+
+A larger down payment changes the picture. Every crore you don’t borrow saves ₹8 lakh of interest a year, but it is also a crore that stops earning elsewhere.
+
+<BlogFigure
+  src={golfAerial}
+  alt="Aerial view of the Jaypee Greens golf course in Greater Noida"
+  caption="The Jaypee Greens golf course, which the CRC The Peridona towers overlook."
+  credit="Frame from the CRC The Peridona project film"
+/>
+
+## CRC The Peridona
+
+[CRC The Peridona](/about-the-peridona) by [CRC Group](/about-crc-group) has 341 residences in seven towers at Jaypee Greens, among the largest luxury apartments in Greater Noida.
+
+- **Homes:** 4 to 5.5 BHK from 4,950 sq. ft. See the [residences](/residences) and [floor plans](/floor-plans)
+- **Price:** indicative figures and payment plans are on the [CRC The Peridona price](/price) page
+- **More:** [amenities](/amenities) and [location and connectivity](/location-connectivity)
+
+<div className="my-10 font-sans">
+  <PeridonaFilm caption="CRC The Peridona: the official project film" />
+</div>
+
+<CtaRow
+  className="mb-12 font-sans"
+  items={[
+    { label: "Book a site visit" },
+    { label: "View floor plans", href: "/floor-plans" },
+    { label: "Explore amenities", href: "/amenities" },
+  ]}
+/>
+
+## FAQs
+
+<FAQ
+  items={[
+    {
+      q: "1. Is it better to rent or buy a house in Greater Noida?",
+      a: "At the top end, renting costs far less each year. A ₹12.5 crore home rents for about ₹2 lakh a month, under 2% of its price. Buying matches renting only if the home gains about 8% a year over ten years, against a tenant who invests the difference at 9%.",
+    },
+    {
+      q: "2. How does rent compare with EMI on a ₹12.5 crore home?",
+      a: "Rent is about ₹2 lakh a month. The EMI on a ₹9.375 crore loan at 8% over 20 years is about ₹7.84 lakh, nearly four times the rent.",
+    },
+    {
+      q: "3. What is the rent for a 4 BHK in Jaypee Greens?",
+      a: "A 4 BHK of about 4,600 sq. ft. asks around ₹2 lakh a month. Smaller 4 BHKs of about 3,100 sq. ft. start near ₹86,000.",
+    },
+    {
+      q: "4. How much of my own money do I need for a ₹12.5 crore home?",
+      a: "About ₹4.75 crore. The down payment is 25%, or ₹3.125 crore. GST at 5% adds ₹62.5 lakh, and stamp duty with registration adds about ₹1 crore.",
+    },
+    {
+      q: "5. What is the stamp duty in Greater Noida?",
+      a: "7% of the value, plus 1% registration. Duty is charged on the higher of the agreement value and the circle rate. The concession for women is small at this price, so confirm it with the sub-registrar’s office.",
+    },
+    {
+      q: "6. Do I pay GST on an under-construction luxury flat?",
+      a: "Yes, 5% of the price. A home bought after its completion certificate carries none.",
+    },
+    {
+      q: "7. What does owning a ₹12.5 crore home cost each year?",
+      a: "About ₹1.13 crore to ₹1.23 crore in the first year after possession: ₹75 lakh of interest, ₹33 lakh to ₹43 lakh of return given up on your own money, and upkeep. Rent on a similar home would be about ₹28 lakh.",
+    },
+    {
+      q: "8. Do I get tax benefits on rent or a home loan?",
+      a: "Only in the old tax regime. A tenant can claim HRA relief, with a 40% salary limit in Greater Noida. An owner can deduct up to ₹2 lakh of interest a year. The new regime gives neither.",
+    },
+  ]}
+/>
+
+## Conclusion
+
+On rent vs buy house in Greater Noida, the top end doesn’t work on rent arithmetic. Owning a ₹12.5 crore home costs about ₹85 lakh to ₹95 lakh a year more than renting one like it, and the home has to gain about 8% a year to make that up. If this is the home you want for the next twenty years and the outlay doesn’t strain you, that is a fair reason to buy. If you’re buying mainly for returns, compare it honestly with what the same money would earn elsewhere.
+
+For the cost sheet and payment schedule, [contact us](/contact-us) or call [+91 73042 16059](tel:+917304216059).
+
+<CtaBand
+  eyebrow="CRC The Peridona · Jaypee Greens"
+  title="Get the cost sheet, payment schedule and brochure"
+  text="4 to 5.5 BHK residences from 4,950 sq. ft., tentative price from ₹12.5 crore*. Possession scheduled for February 2030."
+  items={[
+    { label: "Get the brochure" },
+    { label: "Call +91 73042 16059", href: "tel:+917304216059" },
+    { label: "Contact us", href: "/contact-us" },
+  ]}
+/>
+
+<Disclaimer description="This page is general information, not financial, tax or legal advice. Figures are illustrations based on the stated assumptions and on published data as of November 2026. Prices are tentative and exclude taxes and statutory charges. Verify project details on the UP RERA portal (UPRERAPRJ298067/05/2025). This website belongs to an authorised channel partner, not the developer." />
+
+</ArticleWrap>

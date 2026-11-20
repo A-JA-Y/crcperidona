@@ -455,4 +455,133 @@ export const blogData: BlogMeta[] = [
 }
 
   },
+  {
+    id: "rent-vs-buy-house-greater-noida",
+
+    /* SEO */
+    title: "Rent vs Buy House in Greater Noida: The Numbers at the Top End",
+    slug: "rent-vs-buy-house-greater-noida",
+    excerpt:
+      "A ₹12.5 crore 4 BHK at CRC The Peridona against ₹2 lakh a month in rent in Jaypee Greens: rent vs EMI, the yearly cost of owning, the wait to February 2030 and when buying breaks even.",
+    metaTitle: "Rent vs Buy House in Greater Noida: Ultra-Luxury Numbers",
+    metaDescription:
+      "Rent vs buy house in Greater Noida at the top end: a ₹12.5 crore 4 BHK vs ₹2 lakh rent in Jaypee Greens, yearly cost of owning, EMI and tax.",
+    keywords: [
+      "rent vs buy house",
+      "rent vs buy house in Greater Noida",
+      "is it better to rent or buy a house",
+      "rent vs EMI",
+      "4 BHK for rent in Jaypee Greens",
+      "stamp duty in Greater Noida",
+      "luxury apartments in Greater Noida",
+      "CRC The Peridona price",
+    ],
+    canonical: "https://thecrcperidona.com/blogs/rent-vs-buy-house-greater-noida",
+    altText:
+      "Couple on a private terrace overlooking the Jaypee Greens golf course, a render from the CRC The Peridona project film",
+
+    /* Display */
+    image: "/blog-3.webp",
+    date: "2026-11-19",
+    updatedAt: "2026-11-19",
+    author: "Real Revenue",
+    category: "Buyer Guide",
+    readTime: "10 min read",
+    tags: [
+      "Rent vs Buy",
+      "Greater Noida",
+      "Jaypee Greens",
+      "Home Loan EMI",
+      "Stamp Duty",
+      "CRC The Peridona",
+    ],
+    featured: true,
+
+    /* JSON-LD */
+    schemaMarkup: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: "Rent vs Buy House in Greater Noida: The Numbers at the Top End",
+      description:
+        "Rent vs buy house in Greater Noida at the top end: a ₹12.5 crore 4 BHK vs ₹2 lakh rent in Jaypee Greens, yearly cost of owning, EMI and tax.",
+      image: "https://thecrcperidona.com/blog-3.webp",
+      url: "https://thecrcperidona.com/blogs/rent-vs-buy-house-greater-noida",
+      mainEntityOfPage: "https://thecrcperidona.com/blogs/rent-vs-buy-house-greater-noida",
+      datePublished: "2026-11-19",
+      dateModified: "2026-11-19",
+      inLanguage: "en-IN",
+      author: { "@type": "Organization", name: "Real Revenue" },
+      publisher: { "@type": "Organization", name: "Real Revenue", url: "https://thecrcperidona.com/" },
+    },
+    faqSchema: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Is it better to rent or buy a house in Greater Noida?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "At the top end, renting costs far less each year. A ₹12.5 crore home rents for about ₹2 lakh a month, under 2% of its price. Buying matches renting only if the home gains about 8% a year over ten years, against a tenant who invests the difference at 9%.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How does rent compare with EMI on a ₹12.5 crore home?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Rent is about ₹2 lakh a month. The EMI on a ₹9.375 crore loan at 8% over 20 years is about ₹7.84 lakh, nearly four times the rent.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is the rent for a 4 BHK in Jaypee Greens?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "A 4 BHK of about 4,600 sq. ft. asks around ₹2 lakh a month. Smaller 4 BHKs of about 3,100 sq. ft. start near ₹86,000.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much of my own money do I need for a ₹12.5 crore home?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "About ₹4.75 crore. The down payment is 25%, or ₹3.125 crore. GST at 5% adds ₹62.5 lakh, and stamp duty with registration adds about ₹1 crore.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is the stamp duty in Greater Noida?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "7% of the value, plus 1% registration. Duty is charged on the higher of the agreement value and the circle rate. The concession for women is small at this price, so confirm it with the sub-registrar's office.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do I pay GST on an under-construction luxury flat?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes, 5% of the price. A home bought after its completion certificate carries none.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What does owning a ₹12.5 crore home cost each year?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "About ₹1.13 crore to ₹1.23 crore in the first year after possession: ₹75 lakh of interest, ₹33 lakh to ₹43 lakh of return given up on your own money, and upkeep. Rent on a similar home would be about ₹28 lakh.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do I get tax benefits on rent or a home loan?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Only in the old tax regime. A tenant can claim HRA relief, with a 40% salary limit in Greater Noida. An owner can deduct up to ₹2 lakh of interest a year. The new regime gives neither.",
+          },
+        },
+      ],
+    },
+  },
 ];

@@ -174,6 +174,13 @@ export default async function BlogDetail({ params }: { params: Params }) {
     keywords: (blog.keywords ?? []).join(", "),
   };
 
+  // Posts whose own schemaMarkup already describes the article (Article / BlogPosting)
+  // shouldn't get a second, generated Article block.
+  const articleTypes = ["Article", "BlogPosting", "NewsArticle"];
+  const hasOwnArticleSchema = [blog.schemaMarkup ?? []]
+    .flat()
+    .some((node) => articleTypes.includes(String(node["@type"])));
+
   return (
     <>
       {/* JSON-LD */}
@@ -196,13 +203,15 @@ export default async function BlogDetail({ params }: { params: Params }) {
         />
       )}
 
-      <Script
-        id="schema-article"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(articleSchema),
-        }}
-      />
+      {!hasOwnArticleSchema && (
+        <Script
+          id="schema-article"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(articleSchema),
+          }}
+        />
+      )}
 
       <Script
         id="schema-breadcrumb"
