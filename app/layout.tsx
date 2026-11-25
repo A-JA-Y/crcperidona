@@ -37,10 +37,6 @@ export const metadata: Metadata = {
     canonical: "https://thecrcperidona.com/",
   },
 
-  icons: {
-    icon: "/favicon.ico",
-  },
-
   openGraph: {
     title: "CRC The Peridona | Ultra Luxury 4, 4.5 & 5.5 BHK, Jaypee Greens Greater Noida",
     description:

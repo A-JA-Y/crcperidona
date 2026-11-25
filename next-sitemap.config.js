@@ -4,7 +4,8 @@ module.exports = {
   siteUrl: "https://thecrcperidona.com",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-
+  // App Router icon files (app/icon.png, app/apple-icon.png) build as routes; they are not pages
+  exclude: ["/icon.png", "/apple-icon.png"],
 
   transform: async (config, path) => {
     return {
