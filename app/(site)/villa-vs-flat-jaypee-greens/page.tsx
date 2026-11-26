@@ -338,7 +338,7 @@ export default function VillaVsFlatPage() {
           <p className={prose.p}>
             Read our take on{" "}
             <Link
-              href="/blogs/jewar-airport-crc-the-peridona-investment-2026"
+              href="/blog/jewar-airport-crc-the-peridona-investment-2026"
               className={prose.link}
             >
               Jewar airport and the rise of ultra-luxury homes
@@ -419,7 +419,7 @@ export default function VillaVsFlatPage() {
           <p className={prose.p}>
             Our{" "}
             <Link
-              href="/blogs/crc-the-peridona-greater-noida-buyers-guide-2026"
+              href="/blog/crc-the-peridona-greater-noida-buyers-guide-2026"
               className={prose.link}
             >
               complete buyer’s guide

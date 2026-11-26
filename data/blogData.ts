@@ -51,7 +51,7 @@ export const blogData: BlogMeta[] = [
       "CRC Group",
     ],
     canonical:
-      "https://thecrcperidona.com/blogs/crc-the-peridona-greater-noida-buyers-guide-2026",
+      "https://thecrcperidona.com/blog/crc-the-peridona-greater-noida-buyers-guide-2026",
 
     /* Display */
     image: "/blog-1.webp",
@@ -252,7 +252,7 @@ export const blogData: BlogMeta[] = [
     ],
 
     canonical:
-      "https://thecrcperidona.com/blogs/jewar-airport-crc-the-peridona-investment-2026",
+      "https://thecrcperidona.com/blog/jewar-airport-crc-the-peridona-investment-2026",
 
     altText:
       "CRC The Peridona towers at Jaypee Greens Greater Noida near the Greg Norman golf course, in the Jewar airport corridor",
@@ -312,7 +312,7 @@ export const blogData: BlogMeta[] = [
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id":
-        "https://thecrcperidona.com/blogs/jewar-airport-crc-the-peridona-investment-2026"
+        "https://thecrcperidona.com/blog/jewar-airport-crc-the-peridona-investment-2026"
     },
     "articleSection": "Real Estate Investment",
     "keywords":
@@ -476,7 +476,7 @@ export const blogData: BlogMeta[] = [
       "luxury apartments in Greater Noida",
       "CRC The Peridona price",
     ],
-    canonical: "https://thecrcperidona.com/blogs/rent-vs-buy-house-greater-noida",
+    canonical: "https://thecrcperidona.com/blog/rent-vs-buy-house-greater-noida",
     altText:
       "Couple on a private terrace overlooking the Jaypee Greens golf course, a render from the CRC The Peridona project film",
 
@@ -505,8 +505,8 @@ export const blogData: BlogMeta[] = [
       description:
         "Rent vs buy house in Greater Noida at the top end: a ₹12.5 crore 4 BHK vs ₹2 lakh rent in Jaypee Greens, yearly cost of owning, EMI and tax.",
       image: "https://thecrcperidona.com/blog-3.webp",
-      url: "https://thecrcperidona.com/blogs/rent-vs-buy-house-greater-noida",
-      mainEntityOfPage: "https://thecrcperidona.com/blogs/rent-vs-buy-house-greater-noida",
+      url: "https://thecrcperidona.com/blog/rent-vs-buy-house-greater-noida",
+      mainEntityOfPage: "https://thecrcperidona.com/blog/rent-vs-buy-house-greater-noida",
       datePublished: "2026-11-19",
       dateModified: "2026-11-19",
       inLanguage: "en-IN",

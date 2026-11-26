@@ -381,7 +381,7 @@ export default function SuperBuiltUpVsCarpetAreaPage() {
                   </Link>
                   , and the{" "}
                   <Link
-                    href="/blogs/crc-the-peridona-greater-noida-buyers-guide-2026"
+                    href="/blog/crc-the-peridona-greater-noida-buyers-guide-2026"
                     className={prose.link}
                   >
                     CRC The Peridona buyer’s guide

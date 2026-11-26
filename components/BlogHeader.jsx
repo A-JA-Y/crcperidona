@@ -8,7 +8,7 @@ import logo150 from "../assets/crc-peridona-logo.png";
 
 const menuItems = [
   { label: "HOME", href: "/" },
-  { label: "BLOGS", href: "/blogs" },
+  { label: "BLOGS", href: "/blog" },
   { label: "NEWS", href: "/news" },
 ];
 

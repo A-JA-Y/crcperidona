@@ -1,4 +1,12 @@
 @import "tailwindcss";
+@import "./studio-blocks.css";
+
+.studio-body {
+  --studio-accent: #c4923e;
+  --studio-on-accent: #ffffff;
+  --studio-radius: 12px;
+  --studio-button-radius: 8px;
+}
 
 
 

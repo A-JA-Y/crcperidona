@@ -8,7 +8,7 @@ export const siteNavLinks = [
   { label: "Amenities", href: "/amenities" },
   { label: "Contact Us", href: "/contact-us" },
   { label: "About CRC Group", href: "/about-crc-group" },
-  { label: "Blogs", href: "/blogs" },
+  { label: "Blogs", href: "/blog" },
   { label: "News", href: "/news" },
 
 ];

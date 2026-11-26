@@ -94,6 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </Script>
 
       <body className="min-h-full flex flex-col overflow-x-hidden">
+        <Script src="/studio-blocks.js" strategy="afterInteractive" />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PGFWQ73S"

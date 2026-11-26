@@ -27,7 +27,7 @@ export default function BlogSection() {
         {/* Latest Blogs */}
         <div className="grid md:grid-cols-3 gap-6">
           {latestBlogs.map((item) => (
-            <div key={item.id} onClick={()=>router.push(`/blogs/${item.slug}`)} className="bg-[#FAF8F4] rounded shadow hover:shadow-lg transition">
+            <div key={item.id} onClick={()=>router.push(`/blog/${item.slug}`)} className="bg-[#FAF8F4] rounded shadow hover:shadow-lg transition">
               <Image
                 src={item.image}
                 alt={item.title}
@@ -47,7 +47,7 @@ export default function BlogSection() {
         {/* Global Read More Button */}
         <div className="text-center mt-6">
           <button
-            onClick={() => router.push("/blogs")}
+            onClick={() => router.push("/blog")}
             className="px-6 py-3 text-sm font-medium text-white bg-[#DCA54A] rounded hover:bg-[#C49A2B] transition-colors"
           >
             Read More Articles
