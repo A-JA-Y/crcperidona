@@ -12,6 +12,9 @@
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page"
   },
+   "vars": {
+    "CMS_REVALIDATE_SECRET": "18cddfd1095fe44e19d07a4c5f9f4d69f7baaaa6b5975f1b3384e5b6399691d4"
+  },
   "previews": {},
   "observability": {
     "enabled": true
