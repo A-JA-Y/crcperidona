@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "build2": "next build --webpack",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap && node -e \"try { require('fs').copyFileSync('out/sitemap.xml', 'public/sitemap.xml'); require('fs').copyFileSync('out/robots.txt', 'public/robots.txt'); } catch(e){}\""
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

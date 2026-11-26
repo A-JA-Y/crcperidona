@@ -8,7 +8,14 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   // App Router icon files (app/icon.png, app/apple-icon.png) build as routes; they are not pages
-  exclude: ["/icon.png", "/apple-icon.png"],
+  // Exclude studio-check (noindex) and placeholder from sitemap
+  exclude: [
+    "/icon.png",
+    "/apple-icon.png",
+    "/studio-check",
+    "/studio-check/*",
+    "/blog/placeholder",
+  ],
 
   transform: async (config, path) => {
     return {

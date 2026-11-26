@@ -247,7 +247,7 @@ export default function NewsPage() {
 
         <h2 className={`${prose.h2} mt-12`}>Related</h2>
         <p className={prose.p}>
-          <Link href="/blogs" className={prose.link}>
+          <Link href="/blog" className={prose.link}>
             Blogs →
           </Link>{" "}
           — buyer guides and longer-form analysis

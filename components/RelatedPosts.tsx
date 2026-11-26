@@ -68,7 +68,7 @@ export default function RelatedPosts({ currentSlug }: RelatedPostsProps) {
 
       <div className="pt-4">
         <Link
-          href="/blogs"
+          href="/blog"
           className="block w-full py-3 text-center text-xs font-semibold uppercase tracking-widest text-gray-500 border border-gray-200 rounded-xl hover:bg-gray-50 hover:text-gray-900 transition-all"
         >
           View All Updates
