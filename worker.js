@@ -1,8 +1,10 @@
 function secretsMatch(given, expected) {
-  if (given.length !== expected.length) return false;
+  const a = given.trim();
+  const b = expected.trim().replace(/^["']|["']$/g, "");
+  if (a.length !== b.length) return false;
   let diff = 0;
-  for (let i = 0; i < given.length; i += 1) {
-    diff |= given.charCodeAt(i) ^ expected.charCodeAt(i);
+  for (let i = 0; i < a.length; i += 1) {
+    diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
   }
   return diff === 0;
 }
