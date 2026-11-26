@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./studio-blocks.css";
+@import "../styles/studio-blocks.css";
 
 .studio-body {
   --studio-accent: #c4923e;

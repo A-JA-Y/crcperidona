@@ -46,3 +46,11 @@ next-env.d.ts
 # Cloudflare Wrangler: local dev state and local secrets
 .dev.vars*
 .env.local
+
+.env*.local
+.env
+.dev.vars
+
+# Wrangler runtime output
+.wrangler/
+

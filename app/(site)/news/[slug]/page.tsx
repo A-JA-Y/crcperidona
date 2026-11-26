@@ -1,11 +1,8 @@
 import BlogContactForm from "@/components/BlogContactForm";
-import RelatedPosts from "@/components/RelatedPosts";
 import NewsData from "@/data/newsData";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Script from "next/script";
-import path from "path";
-import fs from "fs";
 
 type Params = Promise<{ slug: string }>;
 
@@ -14,15 +11,6 @@ type Params = Promise<{ slug: string }>;
 ───────────────────────────────────────────── */
 async function getNewsContent(slug: string) {
   try {
-    const filePath = path.join(
-      process.cwd(),
-      "content",
-      "news",
-      `${slug}.mdx`
-    );
-
-    if (!fs.existsSync(filePath)) return null;
-
     const mod = await import(`@/content/news/${slug}.mdx`);
     return mod.default;
   } catch {
@@ -251,8 +239,6 @@ export default async function NewsDetail({ params }: { params: Params }) {
           {/* Sidebar */}
           <aside className="lg:sticky lg:top-8">
             <BlogContactForm />
-
-            <RelatedPosts currentSlug={slug} />
           </aside>
 
         </div>
