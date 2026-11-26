@@ -44,8 +44,29 @@ const worker = {
       return Response.json({ ok: true });
     }
 
-    // Serve static assets from out/
-    return env.ASSETS.fetch(request);
+    // Serve static assets from out/ with resilient 404 handling
+    try {
+      const response = await env.ASSETS.fetch(request);
+      if (response.status === 404) {
+        try {
+          const notFoundRes = await env.ASSETS.fetch(new Request(new URL("/404.html", request.url), request));
+          if (notFoundRes.ok) {
+            return new Response(notFoundRes.body, {
+              status: 404,
+              headers: notFoundRes.headers,
+            });
+          }
+        } catch {}
+      }
+      return response;
+    } catch {
+      try {
+        const notFoundRes = await env.ASSETS.fetch(new Request(new URL("/404.html", request.url), request));
+        return new Response(notFoundRes.body, { status: 404, headers: notFoundRes.headers });
+      } catch {
+        return new Response("Not Found", { status: 404 });
+      }
+    }
   },
 };
 
