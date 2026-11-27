@@ -200,12 +200,7 @@ export default function VillaVsFlatPage() {
             ))}
           </ul>
           <p className={prose.p}>
-            At neighbouring{" "}
-            {externalLink(
-              "https://www.godrejgolflink.in/villas-configurations",
-              "Godrej Golf Links",
-            )}
-            , a 4 BHK villa on a 220 sq. yd plot is listed at about ₹7.50 crore, and a 5 BHK on 300
+            At neighbouring Godrej Golf Links, a 4 BHK villa on a 220 sq. yd plot is listed at about ₹7.50 crore, and a 5 BHK on 300
             sq. yd at about ₹14 crore.
           </p>
           <p className={prose.p}>
@@ -485,16 +480,6 @@ export default function VillaVsFlatPage() {
 
           <h2 className={`${prose.h2} mt-12`}>If a Villa Suits You Better</h2>
           <ul className={prose.ul}>
-            <li className={prose.li}>
-              <span className={prose.tick}>•</span>
-              <span>
-                {externalLink(
-                  "https://www.godrejgolflink.in/villas-configurations",
-                  "Godrej Golf Links villas",
-                )}
-                : 4 and 5 BHK villas near Pari Chowk
-              </span>
-            </li>
             <li className={prose.li}>
               <span className={prose.tick}>•</span>
               <span>
